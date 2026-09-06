@@ -1,0 +1,1578 @@
+/* =========================================
+   ORTIZ ARQUITECTOS
+   ESTILOS PRINCIPALES
+========================================= */
+
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+:root {
+
+    --background: #f5f3ef;
+
+    --surface: #ffffff;
+
+    --dark: #171717;
+
+    --muted: #777777;
+
+    --border: #d5d2cc;
+
+    --max-width: 1200px;
+
+    --header-height: 90px;
+
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+
+    box-sizing: border-box;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: var(--background);
+
+    color: var(--dark);
+
+    line-height: 1.6;
+
+}
+
+
+a {
+
+    color: inherit;
+
+    text-decoration: none;
+
+}
+
+
+img {
+
+    max-width: 100%;
+
+    display: block;
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.site-header {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: var(--header-height);
+
+    padding:
+        0 5%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    z-index: 10;
+
+    color: white;
+
+}
+
+
+.logo {
+
+    display: flex;
+
+    flex-direction: column;
+
+    font-size: 18px;
+
+    letter-spacing: 3px;
+
+    line-height: 1;
+
+}
+
+
+.logo span {
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    margin-top: 7px;
+
+}
+
+
+.main-navigation {
+
+    display: flex;
+
+    gap: 35px;
+
+}
+
+
+.main-navigation a {
+
+    font-size: 12px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+}
+
+
+.main-navigation a:hover {
+
+    opacity: .6;
+
+}
+
+
+.menu-toggle {
+
+    display: none;
+
+    background: none;
+
+    border: none;
+
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    padding:
+        120px 6%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    color: white;
+
+    background:
+
+        linear-gradient(
+            rgba(0,0,0,.42),
+            rgba(0,0,0,.42)
+        ),
+
+        url("../images/hero.jpg")
+
+        center / cover no-repeat;
+
+}
+
+
+.hero-content {
+
+    max-width: 850px;
+
+}
+
+
+.eyebrow {
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color: var(--muted);
+
+    margin-bottom: 25px;
+
+}
+
+
+.hero .eyebrow {
+
+    color: white;
+
+}
+
+
+.hero h1 {
+
+    font-size:
+        clamp(55px, 9vw, 120px);
+
+    font-weight: 400;
+
+    line-height: .95;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 35px;
+
+}
+
+
+.hero-description {
+
+    max-width: 600px;
+
+    margin:
+        0 auto 40px;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+}
+
+
+.hero-scroll {
+
+    position: absolute;
+
+    bottom: 35px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+}
+
+
+.hero-scroll span {
+
+    display: block;
+
+    width: 1px;
+
+    height: 45px;
+
+    background: white;
+
+    margin:
+        0 auto 12px;
+
+}
+
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.button {
+
+    display: inline-block;
+
+    padding:
+        15px 30px;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    transition:
+        .3s ease;
+
+}
+
+
+.button-light {
+
+    border:
+        1px solid white;
+
+    color: white;
+
+}
+
+
+.button-light:hover {
+
+    background: white;
+
+    color: var(--dark);
+
+}
+
+
+.button-dark {
+
+    border:
+        1px solid var(--dark);
+
+}
+
+
+.button-dark:hover {
+
+    background: var(--dark);
+
+    color: white;
+
+}
+
+
+/* =========================================
+   SECCIONES GENERALES
+========================================= */
+
+.featured-projects,
+.services {
+
+    padding:
+        120px 6%;
+
+}
+
+
+.section-header {
+
+    max-width: var(--max-width);
+
+    margin:
+        0 auto 70px;
+
+}
+
+
+.section-header h2 {
+
+    font-size:
+        clamp(50px, 7vw, 90px);
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    margin-bottom: 30px;
+
+}
+
+
+.section-introduction {
+
+    max-width: 650px;
+
+    font-size: 17px;
+
+    color: var(--muted);
+
+}
+
+
+/* =========================================
+   PROYECTOS
+========================================= */
+
+.projects-grid {
+
+    max-width: var(--max-width);
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        70px 30px;
+
+}
+
+
+.project-card:nth-child(3) {
+
+    grid-column:
+        1 / -1;
+
+}
+
+
+.project-image {
+
+    height: 550px;
+
+    background:
+        #ddd;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #888;
+
+    overflow: hidden;
+
+}
+
+
+.project-card:nth-child(3)
+.project-image {
+
+    height: 650px;
+
+}
+
+
+.project-info {
+
+    display: flex;
+
+    gap: 30px;
+
+    padding-top: 20px;
+
+}
+
+
+.project-number {
+
+    font-size: 11px;
+
+    color: var(--muted);
+
+}
+
+
+.project-info h3 {
+
+    font-size: 28px;
+
+    font-weight: 400;
+
+    margin-bottom: 5px;
+
+}
+
+
+.project-info p {
+
+    font-size: 13px;
+
+    color: var(--muted);
+
+}
+
+
+.section-action {
+
+    max-width: var(--max-width);
+
+    margin:
+        80px auto 0;
+
+}
+
+
+/* =========================================
+   ESTUDIO
+========================================= */
+
+.studio {
+
+    background:
+        white;
+
+    padding:
+        140px 6%;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1.5fr;
+
+    gap:
+        100px;
+
+}
+
+
+.studio h2 {
+
+    font-size:
+        clamp(45px, 6vw, 80px);
+
+    font-weight: 400;
+
+    line-height: 1.05;
+
+}
+
+
+.studio-content {
+
+    max-width: 650px;
+
+}
+
+
+.studio-content p {
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    color: var(--muted);
+
+    margin-bottom: 25px;
+
+}
+
+
+.studio-content .studio-lead {
+
+    font-size: 23px;
+
+    color: var(--dark);
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================
+   SERVICIOS
+========================================= */
+
+.services {
+
+    background:
+        var(--background);
+
+}
+
+
+.services-list {
+
+    max-width:
+        var(--max-width);
+
+    margin:
+        0 auto;
+
+    border-top:
+        1px solid var(--border);
+
+}
+
+
+.service {
+
+    display: grid;
+
+    grid-template-columns:
+        100px 1fr 1.5fr;
+
+    gap:
+        30px;
+
+    padding:
+        35px 0;
+
+    border-bottom:
+        1px solid var(--border);
+
+}
+
+
+.service-number {
+
+    color:
+        var(--muted);
+
+    font-size:
+        12px;
+
+}
+
+
+.service h3 {
+
+    font-size:
+        25px;
+
+    font-weight:
+        400;
+
+}
+
+
+.service p {
+
+    color:
+        var(--muted);
+
+    font-size:
+        15px;
+
+}
+
+
+/* =========================================
+   CONTACTO
+========================================= */
+
+.contact {
+
+    min-height:
+        75vh;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    text-align:
+        center;
+
+    background:
+        var(--dark);
+
+    color:
+        white;
+
+    padding:
+        100px 6%;
+
+}
+
+
+.contact .eyebrow {
+
+    color:
+        #aaa;
+
+}
+
+
+.contact h2 {
+
+    font-size:
+        clamp(50px, 8vw, 100px);
+
+    font-weight:
+        400;
+
+    line-height:
+        1;
+
+    margin-bottom:
+        50px;
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.site-footer {
+
+    background:
+        var(--dark);
+
+    color:
+        white;
+
+    padding:
+        70px 6% 30px;
+
+    border-top:
+        1px solid #333;
+
+}
+
+
+.footer-brand {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    margin-bottom:
+        50px;
+
+}
+
+
+.footer-brand strong {
+
+    font-size:
+        28px;
+
+    letter-spacing:
+        4px;
+
+}
+
+
+.footer-brand span {
+
+    font-size:
+        10px;
+
+    letter-spacing:
+        5px;
+
+    margin-top:
+        5px;
+
+}
+
+
+.footer-navigation {
+
+    display:
+        flex;
+
+    gap:
+        30px;
+
+    margin-bottom:
+        70px;
+
+}
+
+
+.footer-navigation a {
+
+    font-size:
+        11px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        2px;
+
+}
+
+
+.footer-bottom {
+
+    padding-top:
+        25px;
+
+    border-top:
+        1px solid #333;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    color:
+        #888;
+
+    font-size:
+        11px;
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+
+    .main-navigation {
+
+        display:
+            none;
+
+    }
+
+
+    .menu-toggle {
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        gap:
+            6px;
+
+    }
+
+
+    .menu-toggle span {
+
+        display:
+            block;
+
+        width:
+            25px;
+
+        height:
+            1px;
+
+        background:
+            white;
+
+    }
+
+
+    .hero {
+
+        min-height:
+            100svh;
+
+    }
+
+
+    .hero h1 {
+
+        font-size:
+            clamp(48px, 15vw, 80px);
+
+    }
+
+
+    .hero-description {
+
+        font-size:
+            16px;
+
+    }
+
+
+    .featured-projects,
+    .services {
+
+        padding:
+            80px 6%;
+
+    }
+
+
+    .projects-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            60px;
+
+    }
+
+
+    .project-card:nth-child(3) {
+
+        grid-column:
+            auto;
+
+    }
+
+
+    .project-image,
+    .project-card:nth-child(3)
+    .project-image {
+
+        height:
+            400px;
+
+    }
+
+
+    .studio {
+
+        padding:
+            90px 6%;
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            50px;
+
+    }
+
+
+    .service {
+
+        grid-template-columns:
+            45px 1fr;
+
+        gap:
+            15px;
+
+    }
+
+
+    .service p {
+
+        grid-column:
+            2;
+
+    }
+
+
+    .contact {
+
+        min-height:
+            65vh;
+
+    }
+
+
+    .footer-navigation {
+
+        flex-direction:
+            column;
+
+        gap:
+            15px;
+
+    }
+
+
+    .footer-bottom {
+
+        flex-direction:
+            column;
+
+    }
+
+}
+
+/* =========================================
+   PÁGINA DE PROYECTOS
+========================================= */
+
+
+.project-header {
+
+    position: fixed;
+
+    background:
+        rgba(245, 243, 239, .96);
+
+    color:
+        var(--dark);
+
+    backdrop-filter:
+        blur(10px);
+
+}
+
+
+.project-header .logo {
+
+    color:
+        var(--dark);
+
+}
+
+
+.project-header .main-navigation a {
+
+    color:
+        var(--dark);
+
+}
+
+
+/* =========================================
+   INTRO PROYECTOS
+========================================= */
+
+.projects-intro {
+
+    min-height:
+        70vh;
+
+    padding:
+        180px 6% 100px;
+
+    display:
+        flex;
+
+    align-items:
+        flex-end;
+
+}
+
+
+.projects-intro > div {
+
+    max-width:
+        var(--max-width);
+
+    width:
+        100%;
+
+    margin:
+        0 auto;
+
+}
+
+
+.projects-intro h1 {
+
+    font-size:
+        clamp(70px, 12vw, 160px);
+
+    font-weight:
+        400;
+
+    line-height:
+        .9;
+
+    margin-bottom:
+        40px;
+
+}
+
+
+.projects-intro p:last-child {
+
+    max-width:
+        550px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        18px;
+
+}
+
+
+/* =========================================
+   LISTA DE PROYECTOS
+========================================= */
+
+.projects-list {
+
+    background:
+        white;
+
+}
+
+
+.project-detail {
+
+    padding:
+        100px 6%;
+
+    border-top:
+        1px solid var(--border);
+
+}
+
+
+.project-detail-image {
+
+    max-width:
+        var(--max-width);
+
+    margin:
+        0 auto 50px;
+
+    overflow:
+        hidden;
+
+}
+
+
+.project-detail-image img {
+
+    width:
+        100%;
+
+    height:
+        720px;
+
+    object-fit:
+        cover;
+
+    transition:
+        transform .8s ease;
+
+}
+
+
+.project-detail:hover
+.project-detail-image img {
+
+    transform:
+        scale(1.02);
+
+}
+
+
+.project-detail-content {
+
+    max-width:
+        var(--max-width);
+
+    margin:
+        0 auto;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        80px;
+
+}
+
+
+.project-detail-content h2 {
+
+    font-size:
+        clamp(45px, 6vw, 80px);
+
+    font-weight:
+        400;
+
+    line-height:
+        1;
+
+    margin-top:
+        15px;
+
+}
+
+
+.project-category {
+
+    font-size:
+        11px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        2px;
+
+    margin-bottom:
+        25px;
+
+}
+
+
+.project-detail-content > div:last-child > p:not(.project-category) {
+
+    color:
+        var(--muted);
+
+    max-width:
+        500px;
+
+    line-height:
+        1.8;
+
+    margin-bottom:
+        35px;
+
+}
+
+
+/* =========================================
+   DATOS DEL PROYECTO
+========================================= */
+
+.project-detail dl {
+
+    margin-bottom:
+        35px;
+
+}
+
+
+.project-detail dl div {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    max-width:
+        300px;
+
+    padding:
+        12px 0;
+
+    border-top:
+        1px solid var(--border);
+
+}
+
+
+.project-detail dt {
+
+    font-size:
+        11px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        1px;
+
+    color:
+        var(--muted);
+
+}
+
+
+.project-detail dd {
+
+    font-size:
+        13px;
+
+}
+
+
+/* =========================================
+   BOTÓN GALERÍA
+========================================= */
+
+.gallery-button {
+
+    border:
+        1px solid var(--dark);
+
+    background:
+        transparent;
+
+    padding:
+        15px 25px;
+
+    font-size:
+        11px;
+
+    letter-spacing:
+        2px;
+
+    text-transform:
+        uppercase;
+
+    cursor:
+        pointer;
+
+    transition:
+        .3s ease;
+
+}
+
+
+.gallery-button:hover {
+
+    background:
+        var(--dark);
+
+    color:
+        white;
+
+}
+
+
+/* =========================================
+   DATOS OCULTOS
+========================================= */
+
+.gallery-data {
+
+    display:
+        none;
+
+}
+
+
+/* =========================================
+   LIGHTBOX
+========================================= */
+
+.lightbox {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    background:
+        rgba(10,10,10,.97);
+
+    z-index:
+        100;
+
+    display:
+        none;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+}
+
+
+.lightbox.active {
+
+    display:
+        flex;
+
+}
+
+
+.lightbox-content {
+
+    width:
+        min(85vw, 1200px);
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+}
+
+
+.lightbox-content img {
+
+    max-width:
+        100%;
+
+    max-height:
+        80vh;
+
+    object-fit:
+        contain;
+
+}
+
+
+.lightbox-counter {
+
+    color:
+        white;
+
+    margin-top:
+        20px;
+
+    font-size:
+        11px;
+
+    letter-spacing:
+        3px;
+
+}
+
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+
+    position:
+        absolute;
+
+    border:
+        none;
+
+    background:
+        none;
+
+    color:
+        white;
+
+    cursor:
+        pointer;
+
+    font-size:
+        30px;
+
+}
+
+
+.lightbox-close {
+
+    top:
+        30px;
+
+    right:
+        40px;
+
+}
+
+
+.lightbox-prev {
+
+    left:
+        35px;
+
+}
+
+
+.lightbox-next {
+
+    right:
+        35px;
+
+}
+
+
+/* =========================================
+   RESPONSIVE PROYECTOS
+========================================= */
+
+@media (max-width: 768px) {
+
+
+    .projects-intro {
+
+        min-height:
+            60vh;
+
+        padding:
+            140px 6% 70px;
+
+    }
+
+
+    .projects-intro h1 {
+
+        font-size:
+            65px;
+
+    }
+
+
+    .project-detail {
+
+        padding:
+            70px 6%;
+
+    }
+
+
+    .project-detail-image img {
+
+        height:
+            450px;
+
+    }
+
+
+    .project-detail-content {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            40px;
+
+    }
+
+
+    .project-detail-content h2 {
+
+        font-size:
+            48px;
+
+    }
+
+
+    .lightbox-prev {
+
+        left:
+            15px;
+
+    }
+
+
+    .lightbox-next {
+
+        right:
+            15px;
+
+    }
+
+
+}
