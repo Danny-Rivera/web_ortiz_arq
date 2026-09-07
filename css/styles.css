@@ -2,18 +2,16 @@
    ORTIZ ARQUITECTOS
    HOJA DE ESTILOS PRINCIPAL
 
-   Este archivo controla:
+   Incluye:
    - Diseño general
    - Inicio
+   - Hero / Slideshow
    - Proyectos
    - Galerías
    - Lightbox
    - Menú responsive
    - Tablet
    - Teléfono
-
-   IMPORTANTE:
-   Las imágenes se encuentran dentro de /images/
    ========================================================= */
 
 
@@ -25,9 +23,12 @@
 
     --background: #f5f3ef;
     --surface: #ffffff;
+
     --dark: #171717;
     --dark-soft: #242424;
+
     --muted: #777777;
+
     --border: #d5d2cc;
 
     --max-width: 1200px;
@@ -56,7 +57,9 @@ html {
 
 
 body {
+
     background: var(--background);
+
     color: var(--dark);
 
     font-family:
@@ -76,19 +79,25 @@ body.lightbox-open {
 
 
 img {
+
     display: block;
+
     width: 100%;
+
     height: auto;
 }
 
 
 a {
+
     color: inherit;
+
     text-decoration: none;
 }
 
 
 button {
+
     font-family: inherit;
 }
 
@@ -98,6 +107,7 @@ button {
    ========================================================= */
 
 .container {
+
     width: min(
         calc(100% - 80px),
         var(--max-width)
@@ -137,11 +147,11 @@ button {
 
 
 /*
-   Header utilizado en páginas interiores,
-   como proyectos.html.
+   Header para páginas interiores.
 */
 
 .project-header {
+
     position: relative;
 
     background: var(--background);
@@ -153,7 +163,7 @@ button {
 
 
 /* =========================================================
-   LOGO
+   05. LOGO
    ========================================================= */
 
 .logo {
@@ -185,7 +195,7 @@ button {
 
 
 /* =========================================================
-   05. NAVEGACIÓN
+   06. NAVEGACIÓN
    ========================================================= */
 
 .main-navigation {
@@ -214,12 +224,13 @@ button {
 
 
 .main-navigation a:hover {
+
     opacity: 0.55;
 }
 
 
 /*
-   Línea animada debajo del enlace.
+   Línea debajo del enlace.
 */
 
 .main-navigation a::after {
@@ -229,9 +240,11 @@ button {
     position: absolute;
 
     left: 0;
+
     bottom: -7px;
 
     width: 0;
+
     height: 1px;
 
     background: currentColor;
@@ -242,12 +255,13 @@ button {
 
 
 .main-navigation a:hover::after {
+
     width: 100%;
 }
 
 
 /* =========================================================
-   06. BOTÓN MENÚ MÓVIL
+   07. BOTÓN MENÚ MÓVIL
    ========================================================= */
 
 .menu-toggle {
@@ -255,6 +269,7 @@ button {
     display: none;
 
     width: 42px;
+
     height: 42px;
 
     padding: 0;
@@ -262,6 +277,8 @@ button {
     border: none;
 
     background: transparent;
+
+    color: inherit;
 
     cursor: pointer;
 
@@ -290,17 +307,19 @@ button {
 
 
 .menu-toggle span:first-child {
+
     top: 16px;
 }
 
 
 .menu-toggle span:last-child {
+
     top: 24px;
 }
 
 
 /*
-   Estado del botón cuando el menú está abierto.
+   Hamburguesa convertida en X.
 */
 
 .menu-toggle.active span:first-child {
@@ -320,35 +339,105 @@ button {
 
 
 /* =========================================================
-   07. HERO
+   08. HERO / SLIDESHOW
    ========================================================= */
 
 .hero {
 
+    position: relative;
+
     min-height: 100vh;
 
-    position: relative;
+    height: 100vh;
 
     display: flex;
 
     align-items: center;
 
-    background-color: var(--dark);
+    overflow: hidden;
 
-    background-image:
-        linear-gradient(
-            rgba(0, 0, 0, 0.42),
-            rgba(0, 0, 0, 0.42)
-        ),
-        url("../images/hero.jpg");
+    background-color: var(--dark);
+}
+
+
+/* =========================================================
+   IMÁGENES DEL SLIDESHOW
+   ========================================================= */
+
+.hero-slideshow {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 0;
+}
+
+
+.hero-slide {
+
+    position: absolute;
+
+    inset: 0;
 
     background-size: cover;
 
     background-position: center;
+
+    opacity: 0;
+
+    transform: scale(1.03);
+
+    transition:
+        opacity 1.2s ease,
+        transform 6s ease;
 }
 
 
+/*
+   Imagen activa.
+*/
+
+.hero-slide.active {
+
+    opacity: 1;
+
+    transform: scale(1);
+}
+
+
+/* =========================================================
+   CAPA OSCURA SOBRE LA FOTOGRAFÍA
+   ========================================================= */
+
+.hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.58),
+            rgba(0,0,0,0.18)
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTENIDO DEL HERO
+   ========================================================= */
+
 .hero-content {
+
+    position: relative;
+
+    z-index: 2;
 
     width: min(
         calc(100% - 80px),
@@ -363,8 +452,11 @@ button {
 }
 
 
-.hero-eyebrow,
-.section-eyebrow {
+/* =========================================================
+   TEXTOS PEQUEÑOS / EYEBROW
+   ========================================================= */
+
+.eyebrow {
 
     display: block;
 
@@ -377,6 +469,10 @@ button {
     text-transform: uppercase;
 }
 
+
+/* =========================================================
+   TITULO PRINCIPAL
+   ========================================================= */
 
 .hero h1 {
 
@@ -396,6 +492,10 @@ button {
 }
 
 
+/* =========================================================
+   DESCRIPCIÓN
+   ========================================================= */
+
 .hero-description {
 
     max-width: 500px;
@@ -409,7 +509,142 @@ button {
 
 
 /* =========================================================
-   08. BOTONES
+   INFORMACIÓN DEL PROYECTO
+   ========================================================= */
+
+.hero-project {
+
+    position: absolute;
+
+    left: 5vw;
+
+    bottom: 50px;
+
+    z-index: 3;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    color: #ffffff;
+}
+
+
+.hero-project-number {
+
+    font-size: 11px;
+
+    letter-spacing: 0.18em;
+
+    opacity: 0.65;
+}
+
+
+.hero-project-name {
+
+    font-size: 14px;
+
+    letter-spacing: 0.04em;
+}
+
+
+/* =========================================================
+   INDICADORES DEL SLIDESHOW
+   ========================================================= */
+
+.hero-dots {
+
+    position: absolute;
+
+    right: 5vw;
+
+    bottom: 52px;
+
+    z-index: 3;
+
+    display: flex;
+
+    gap: 10px;
+}
+
+
+.hero-dot {
+
+    width: 28px;
+
+    height: 2px;
+
+    padding: 0;
+
+    border: none;
+
+    background:
+        rgba(255,255,255,0.4);
+
+    cursor: pointer;
+
+    transition:
+        width 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.hero-dot.active {
+
+    width: 50px;
+
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   INDICADOR DE SCROLL
+   ========================================================= */
+
+.hero-scroll {
+
+    position: absolute;
+
+    right: 5vw;
+
+    bottom: 48px;
+
+    z-index: 3;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #ffffff;
+
+    font-size: 9px;
+
+    letter-spacing: 0.2em;
+
+    text-transform: uppercase;
+
+    opacity: 0.7;
+}
+
+
+.hero-scroll span {
+
+    display: block;
+
+    width: 28px;
+
+    height: 1px;
+
+    background: currentColor;
+}
+
+
+/* =========================================================
+   09. BOTONES
    ========================================================= */
 
 .button {
@@ -438,6 +673,18 @@ button {
 }
 
 
+.button-light {
+
+    color: #ffffff;
+}
+
+
+.button-dark {
+
+    color: var(--dark);
+}
+
+
 .button:hover {
 
     background: var(--dark);
@@ -447,36 +694,11 @@ button {
 
 
 /* =========================================================
-   09. INDICADOR DEL HERO
-   ========================================================= */
-
-.scroll-indicator {
-
-    position: absolute;
-
-    left: 50%;
-
-    bottom: 30px;
-
-    transform: translateX(-50%);
-
-    color: #ffffff;
-
-    font-size: 9px;
-
-    letter-spacing: 0.2em;
-
-    text-transform: uppercase;
-
-    opacity: 0.7;
-}
-
-
-/* =========================================================
    10. SECCIONES GENERALES
    ========================================================= */
 
 section {
+
     position: relative;
 }
 
@@ -495,12 +717,10 @@ section {
 
 
 /* =========================================================
-   11. PROYECTOS DESTACADOS — INICIO
+   11. PROYECTOS DESTACADOS
    ========================================================= */
 
 .featured-projects {
-
-    padding: 120px 0;
 
     width: min(
         calc(100% - 80px),
@@ -508,12 +728,20 @@ section {
     );
 
     margin: 0 auto;
+
+    padding: 120px 0;
+}
+
+
+.section-header {
+
+    margin-bottom: 60px;
 }
 
 
 .featured-projects h2 {
 
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 
     font-size: clamp(
         40px,
@@ -529,36 +757,65 @@ section {
 }
 
 
-.featured-grid {
+.section-introduction {
+
+    max-width: 600px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   GRID DE PROYECTOS
+   ========================================================= */
+
+.projects-grid {
 
     display: grid;
 
     grid-template-columns:
         repeat(3, 1fr);
 
-    gap: 24px;
+    gap: 30px;
 }
 
 
-.featured-card {
+.project-card {
 
     overflow: hidden;
-
-    background: var(--surface);
 }
 
 
-.featured-card-image {
+.project-card a {
+
+    display: block;
+}
+
+
+.project-image {
 
     overflow: hidden;
 
     aspect-ratio: 4 / 5;
+
+    background: #ddd;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
 }
 
 
-.featured-card-image img {
+.project-image img {
 
     width: 100%;
+
     height: 100%;
 
     object-fit: cover;
@@ -568,22 +825,45 @@ section {
 }
 
 
-.featured-card:hover
-.featured-card-image img {
+.project-card:hover
+.project-image img {
 
     transform: scale(1.04);
 }
 
 
-.featured-card-content {
+.project-image span {
 
-    padding: 22px 0;
+    color: var(--muted);
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.12em;
 }
 
 
-.featured-card-content h3 {
+/* =========================================================
+   INFORMACIÓN DE TARJETA
+   ========================================================= */
 
-    font-size: 24px;
+.project-info {
+
+    display: grid;
+
+    grid-template-columns:
+        40px 1fr;
+
+    gap: 15px;
+
+    padding-top: 20px;
+}
+
+
+.project-info h3 {
+
+    font-size: 21px;
 
     font-weight: 400;
 
@@ -591,17 +871,39 @@ section {
 }
 
 
-.featured-card-content p {
+.project-info p {
 
-    margin-top: 8px;
-
-    font-size: 11px;
+    margin-top: 7px;
 
     color: var(--muted);
+
+    font-size: 10px;
 
     text-transform: uppercase;
 
     letter-spacing: 0.1em;
+}
+
+
+.project-info .project-number {
+
+    margin: 0;
+
+    font-size: 10px;
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   BOTÓN SECCIÓN
+   ========================================================= */
+
+.section-action {
+
+    margin-top: 70px;
+
+    text-align: center;
 }
 
 
@@ -622,16 +924,9 @@ section {
 }
 
 
-.studio-grid {
+.studio-heading {
 
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 80px;
-
-    align-items: center;
+    margin-bottom: 60px;
 }
 
 
@@ -651,15 +946,33 @@ section {
 }
 
 
-.studio-text {
+.studio-content {
 
-    max-width: 550px;
+    max-width: 700px;
 
-    font-size: 16px;
+    margin-left: auto;
+}
+
+
+.studio-content p {
+
+    margin-bottom: 25px;
 
     color: var(--muted);
 
+    font-size: 15px;
+
     line-height: 1.8;
+}
+
+
+.studio-lead {
+
+    color: var(--dark) !important;
+
+    font-size: 22px !important;
+
+    line-height: 1.4 !important;
 }
 
 
@@ -675,20 +988,20 @@ section {
 }
 
 
-.services-inner {
+.services .section-header {
 
     width: min(
         calc(100% - 80px),
         var(--max-width)
     );
 
-    margin: 0 auto;
+    margin:
+        0 auto
+        60px;
 }
 
 
 .services h2 {
-
-    margin-bottom: 60px;
 
     font-size: clamp(
         44px,
@@ -706,11 +1019,18 @@ section {
 
 .services-list {
 
+    width: min(
+        calc(100% - 80px),
+        var(--max-width)
+    );
+
+    margin: 0 auto;
+
     border-top: 1px solid var(--border);
 }
 
 
-.service-item {
+.service {
 
     display: grid;
 
@@ -733,7 +1053,7 @@ section {
 }
 
 
-.service-item h3 {
+.service h3 {
 
     font-size: 25px;
 
@@ -741,13 +1061,15 @@ section {
 }
 
 
-.service-item p {
+.service p {
 
     max-width: 450px;
 
     color: var(--muted);
 
     font-size: 14px;
+
+    line-height: 1.7;
 }
 
 
@@ -765,7 +1087,7 @@ section {
 }
 
 
-.contact-inner {
+.contact-content {
 
     width: min(
         calc(100% - 80px),
@@ -794,40 +1116,6 @@ section {
 }
 
 
-.contact-info {
-
-    margin-top: 60px;
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 50px;
-}
-
-
-.contact-info div {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 7px;
-}
-
-
-.contact-label {
-
-    font-size: 9px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.15em;
-
-    opacity: 0.5;
-}
-
-
 /* =========================================================
    15. FOOTER
    ========================================================= */
@@ -838,9 +1126,14 @@ section {
 
     color: #ffffff;
 
-    border-top: 1px solid rgba(255,255,255,0.15);
+    border-top:
+        1px solid
+        rgba(255,255,255,0.15);
 
-    padding: 55px 40px 30px;
+    padding:
+        55px
+        40px
+        30px;
 }
 
 
@@ -900,6 +1193,7 @@ section {
 
 
 .footer-navigation a:hover {
+
     opacity: 1;
 }
 
@@ -916,11 +1210,14 @@ section {
 
     padding-top: 20px;
 
-    border-top: 1px solid rgba(255,255,255,0.15);
+    border-top:
+        1px solid
+        rgba(255,255,255,0.15);
 
     font-size: 9px;
 
-    color: rgba(255,255,255,0.5);
+    color:
+        rgba(255,255,255,0.5);
 
     text-transform: uppercase;
 
@@ -941,7 +1238,10 @@ section {
 
     margin: 0 auto;
 
-    padding: 120px 0 100px;
+    padding:
+        120px
+        0
+        100px;
 }
 
 
@@ -1006,7 +1306,9 @@ section {
 
     min-height: 650px;
 
-    border-top: 1px solid var(--border);
+    border-top:
+        1px solid
+        var(--border);
 
     padding: 80px 0;
 
@@ -1024,9 +1326,7 @@ section {
 }
 
 
-/*
-   Alternamos imagen y contenido en proyectos pares.
-*/
+/* Alternancia */
 
 .project-detail:nth-child(even)
 .project-detail-image {
@@ -1150,7 +1450,9 @@ section {
 
     padding-top: 18px;
 
-    border-top: 1px solid var(--border);
+    border-top:
+        1px solid
+        var(--border);
 }
 
 
@@ -1225,6 +1527,7 @@ section {
 
 
 .gallery-button:hover {
+
     opacity: 0.55;
 }
 
@@ -1240,6 +1543,7 @@ section {
    ========================================================= */
 
 .gallery-data {
+
     display: none;
 }
 
@@ -1255,9 +1559,11 @@ section {
     inset: 0;
 
     width: 100%;
+
     height: 100%;
 
-    background: rgba(10,10,10,0.97);
+    background:
+        rgba(10,10,10,0.97);
 
     display: flex;
 
@@ -1330,7 +1636,7 @@ section {
 
 
 /* =========================================================
-   25. CONTADOR
+   25. CONTADOR LIGHTBOX
    ========================================================= */
 
 .lightbox-counter {
@@ -1341,9 +1647,11 @@ section {
 
     bottom: -35px;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
-    color: rgba(255,255,255,0.65);
+    color:
+        rgba(255,255,255,0.65);
 
     font-size: 10px;
 
@@ -1380,6 +1688,7 @@ section {
 .lightbox-close:hover,
 .lightbox-prev:hover,
 .lightbox-next:hover {
+
     opacity: 0.5;
 }
 
@@ -1408,7 +1717,8 @@ section {
 
     top: 50%;
 
-    transform: translateY(-50%);
+    transform:
+        translateY(-50%);
 
     font-size: 30px;
 }
@@ -1430,7 +1740,8 @@ section {
 
     top: 50%;
 
-    transform: translateY(-50%);
+    transform:
+        translateY(-50%);
 
     font-size: 30px;
 }
@@ -1446,40 +1757,37 @@ section {
 
 /* =========================================================
    27. TABLET
-   Pantallas de hasta 900px
+   Hasta 900px
    ========================================================= */
 
 @media (max-width: 900px) {
 
 
-    /* ---------------------------------------------
+    /* =====================================================
        HEADER
-       --------------------------------------------- */
+       ===================================================== */
 
     .site-header {
 
         padding: 0 25px;
-
     }
 
 
     .main-navigation {
 
         gap: 20px;
-
     }
 
 
     .main-navigation a {
 
         font-size: 10px;
-
     }
 
 
-    /* ---------------------------------------------
+    /* =====================================================
        HERO
-       --------------------------------------------- */
+       ===================================================== */
 
     .hero-content {
 
@@ -1487,7 +1795,6 @@ section {
             calc(100% - 50px),
             var(--max-width)
         );
-
     }
 
 
@@ -1498,113 +1805,124 @@ section {
             10vw,
             80px
         );
-
     }
 
 
-    /* ---------------------------------------------
-       DESTACADOS
-       --------------------------------------------- */
+    .hero-project {
+
+        left: 25px;
+    }
+
+
+    .hero-dots {
+
+        right: 25px;
+    }
+
+
+    /* =====================================================
+       PROYECTOS DESTACADOS
+       ===================================================== */
 
     .featured-projects {
 
         width: calc(100% - 50px);
 
         padding: 90px 0;
-
     }
 
 
-    .featured-grid {
+    .projects-grid {
 
         grid-template-columns:
             repeat(2, 1fr);
-
     }
 
 
-    /* ---------------------------------------------
+    /* =====================================================
        ESTUDIO
-       --------------------------------------------- */
+       ===================================================== */
 
     .studio {
 
         width: calc(100% - 50px);
 
         padding: 100px 0;
-
     }
 
 
-    .studio-grid {
+    .studio-content {
 
-        gap: 45px;
+        margin-left: 0;
 
+        max-width: 650px;
     }
 
 
-    /* ---------------------------------------------
+    /* =====================================================
        SERVICIOS
-       --------------------------------------------- */
+       ===================================================== */
 
-    .services-inner {
+    .services .section-header {
 
         width: calc(100% - 50px);
-
     }
 
 
-    .service-item {
+    .services-list {
+
+        width: calc(100% - 50px);
+    }
+
+
+    .service {
 
         grid-template-columns:
             60px 1fr 1fr;
-
     }
 
 
-    /* ---------------------------------------------
+    /* =====================================================
        CONTACTO
-       --------------------------------------------- */
+       ===================================================== */
 
-    .contact-inner {
+    .contact-content {
 
         width: calc(100% - 50px);
-
     }
 
 
-    /* ---------------------------------------------
+    /* =====================================================
        PROYECTOS
-       --------------------------------------------- */
+       ===================================================== */
 
     .projects-intro {
 
         width: calc(100% - 50px);
 
-        padding: 90px 0 70px;
-
+        padding:
+            90px
+            0
+            70px;
     }
 
 
     .projects-list {
 
         width: calc(100% - 50px);
-
     }
 
 
     .project-detail,
     .project-detail:nth-child(even) {
 
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
         gap: 45px;
 
         min-height: auto;
 
         padding: 65px 0;
-
     }
 
 
@@ -1612,7 +1930,6 @@ section {
     .project-detail-image {
 
         order: initial;
-
     }
 
 
@@ -1620,7 +1937,6 @@ section {
     .project-detail-content {
 
         order: initial;
-
     }
 
 
@@ -1629,41 +1945,30 @@ section {
         min-height: 500px;
 
         aspect-ratio: 4 / 3;
-
     }
 
 
-    .project-detail-content {
-
-        gap: 50px;
-
-    }
-
-
-    /* ---------------------------------------------
+    /* =====================================================
        LIGHTBOX
-       --------------------------------------------- */
+       ===================================================== */
 
     .lightbox-content {
 
         width: 78vw;
 
         height: 78vh;
-
     }
 
 
     .lightbox-prev {
 
         left: 18px;
-
     }
 
 
     .lightbox-next {
 
         right: 18px;
-
     }
 
 }
@@ -1671,27 +1976,25 @@ section {
 
 /* =========================================================
    28. TELÉFONOS
-   Pantallas de hasta 600px
+   Hasta 600px
    ========================================================= */
 
 @media (max-width: 600px) {
 
 
     /* =====================================================
-       AJUSTES GENERALES
+       VARIABLES
        ===================================================== */
 
     :root {
 
         --header-height: 70px;
-
     }
 
 
     body {
 
         font-size: 14px;
-
     }
 
 
@@ -1704,14 +2007,12 @@ section {
         height: var(--header-height);
 
         padding: 0 18px;
-
     }
 
 
     .logo {
 
         font-size: 18px;
-
     }
 
 
@@ -1720,30 +2021,27 @@ section {
         font-size: 7px;
 
         letter-spacing: 0.24em;
-
     }
 
 
-    /*
-       Mostramos el botón hamburguesa.
-    */
+    /* =====================================================
+       MENÚ HAMBURGUESA
+       ===================================================== */
 
     .menu-toggle {
 
         display: block;
 
+        color: #ffffff;
     }
 
-
-    /*
-       Ocultamos la navegación inicialmente.
-    */
 
     .main-navigation {
 
         position: fixed;
 
         top: 0;
+
         right: 0;
 
         width: min(
@@ -1758,7 +2056,8 @@ section {
             35px
             40px;
 
-        background: var(--background);
+        background:
+            var(--background);
 
         color: var(--dark);
 
@@ -1772,26 +2071,22 @@ section {
 
         gap: 25px;
 
-        transform: translateX(100%);
+        transform:
+            translateX(100%);
 
         transition:
             transform 0.4s ease;
 
         box-shadow:
-            -10px 0 40px rgba(0,0,0,0.08);
-
+            -10px 0 40px
+            rgba(0,0,0,0.08);
     }
 
 
-    /*
-       Cuando JavaScript agregue .active
-       el menú entra desde la derecha.
-    */
-
     .main-navigation.active {
 
-        transform: translateX(0);
-
+        transform:
+            translateX(0);
     }
 
 
@@ -1800,20 +2095,18 @@ section {
         font-size: 15px;
 
         letter-spacing: 0.08em;
-
     }
 
 
     .main-navigation a::after {
 
         bottom: -5px;
-
     }
 
 
-    /*
-       Overlay visual cuando el menú está abierto.
-    */
+    /* =====================================================
+       OVERLAY DEL MENÚ
+       ===================================================== */
 
     .site-header::after {
 
@@ -1823,7 +2116,8 @@ section {
 
         inset: 0;
 
-        background: rgba(0,0,0,0.35);
+        background:
+            rgba(0,0,0,0.35);
 
         opacity: 0;
 
@@ -1836,7 +2130,6 @@ section {
             visibility 0.3s ease;
 
         z-index: -1;
-
     }
 
 
@@ -1845,7 +2138,6 @@ section {
         opacity: 1;
 
         visibility: visible;
-
     }
 
 
@@ -1857,26 +2149,34 @@ section {
 
         min-height: 100svh;
 
-        background-position: center;
+        height: 100svh;
+    }
 
+
+    .hero-slide {
+
+        background-position:
+            center center;
+    }
+
+
+    .hero-overlay {
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(0,0,0,0.48),
+                rgba(0,0,0,0.40)
+            );
     }
 
 
     .hero-content {
 
-        width: calc(100% - 36px);
+        width:
+            calc(100% - 36px);
 
         padding-top: 70px;
-
-    }
-
-
-    .hero-eyebrow {
-
-        margin-bottom: 14px;
-
-        font-size: 8px;
-
     }
 
 
@@ -1891,7 +2191,6 @@ section {
         );
 
         line-height: 0.92;
-
     }
 
 
@@ -1904,7 +2203,6 @@ section {
         font-size: 13px;
 
         line-height: 1.65;
-
     }
 
 
@@ -1912,19 +2210,71 @@ section {
 
         margin-top: 28px;
 
-        padding: 14px 18px;
+        padding:
+            14px
+            18px;
 
         font-size: 9px;
-
     }
 
 
-    .scroll-indicator {
+    /* =====================================================
+       PROYECTO ACTUAL DEL HERO
+       ===================================================== */
 
-        bottom: 20px;
+    .hero-project {
 
-        font-size: 8px;
+        left: 18px;
 
+        bottom: 75px;
+    }
+
+
+    .hero-project-number {
+
+        font-size: 9px;
+    }
+
+
+    .hero-project-name {
+
+        font-size: 12px;
+    }
+
+
+    /* =====================================================
+       INDICADORES
+       ===================================================== */
+
+    .hero-dots {
+
+        right: 18px;
+
+        bottom: 42px;
+
+        gap: 6px;
+    }
+
+
+    .hero-dot {
+
+        width: 18px;
+    }
+
+
+    .hero-dot.active {
+
+        width: 32px;
+    }
+
+
+    /* =====================================================
+       SCROLL
+       ===================================================== */
+
+    .hero-scroll {
+
+        display: none;
     }
 
 
@@ -1934,49 +2284,59 @@ section {
 
     .featured-projects {
 
-        width: calc(100% - 36px);
+        width:
+            calc(100% - 36px);
 
-        padding: 75px 0;
+        padding:
+            75px 0;
+    }
 
+
+    .section-header {
+
+        margin-bottom: 40px;
     }
 
 
     .featured-projects h2 {
 
-        margin-bottom: 40px;
+        margin-bottom: 20px;
 
         font-size: 48px;
-
     }
 
 
-    .featured-grid {
+    .section-introduction {
+
+        font-size: 13px;
+
+        line-height: 1.75;
+    }
+
+
+    .projects-grid {
 
         grid-template-columns: 1fr;
 
         gap: 45px;
-
     }
 
 
-    .featured-card-image {
+    .project-image {
 
         aspect-ratio: 4 / 5;
-
     }
 
 
-    .featured-card-content {
+    .project-info {
 
-        padding: 17px 0;
-
+        padding-top: 17px;
     }
 
 
-    .featured-card-content h3 {
+    .project-info h3 {
 
         font-size: 21px;
-
     }
 
 
@@ -1986,35 +2346,43 @@ section {
 
     .studio {
 
-        width: calc(100% - 36px);
+        width:
+            calc(100% - 36px);
 
-        padding: 80px 0;
-
+        padding:
+            80px 0;
     }
 
 
-    .studio-grid {
+    .studio-heading {
 
-        grid-template-columns: 1fr;
-
-        gap: 35px;
-
+        margin-bottom: 40px;
     }
 
 
     .studio h2 {
 
         font-size: 52px;
-
     }
 
 
-    .studio-text {
+    .studio-content {
+
+        margin-left: 0;
+    }
+
+
+    .studio-lead {
+
+        font-size: 19px !important;
+    }
+
+
+    .studio-content p {
 
         font-size: 14px;
 
         line-height: 1.75;
-
     }
 
 
@@ -2025,27 +2393,32 @@ section {
     .services {
 
         padding: 80px 0;
-
     }
 
 
-    .services-inner {
+    .services .section-header {
 
-        width: calc(100% - 36px);
+        width:
+            calc(100% - 36px);
 
+        margin-bottom: 40px;
     }
 
 
     .services h2 {
 
-        margin-bottom: 40px;
-
         font-size: 52px;
-
     }
 
 
-    .service-item {
+    .services-list {
+
+        width:
+            calc(100% - 36px);
+    }
+
+
+    .service {
 
         grid-template-columns:
             35px 1fr;
@@ -2053,32 +2426,28 @@ section {
         gap: 15px;
 
         padding: 25px 0;
-
     }
 
 
     .service-number {
 
         font-size: 9px;
-
     }
 
 
-    .service-item h3 {
+    .service h3 {
 
         font-size: 21px;
-
     }
 
 
-    .service-item p {
+    .service p {
 
         grid-column: 2;
 
         font-size: 13px;
 
         line-height: 1.7;
-
     }
 
 
@@ -2089,54 +2458,41 @@ section {
     .contact {
 
         padding: 85px 0;
-
     }
 
 
-    .contact-inner {
+    .contact-content {
 
-        width: calc(100% - 36px);
-
+        width:
+            calc(100% - 36px);
     }
 
 
     .contact h2 {
 
         font-size: 52px;
-
-    }
-
-
-    .contact-info {
-
-        flex-direction: column;
-
-        gap: 30px;
-
-        margin-top: 45px;
-
     }
 
 
     /* =====================================================
-       PÁGINA PROYECTOS — INTRO
+       INTRO PROYECTOS
        ===================================================== */
 
     .projects-intro {
 
-        width: calc(100% - 36px);
+        width:
+            calc(100% - 36px);
 
         padding:
-            80px 0
+            80px
+            0
             60px;
-
     }
 
 
     .projects-intro h1 {
 
         font-size: 64px;
-
     }
 
 
@@ -2147,20 +2503,19 @@ section {
         font-size: 13px;
 
         line-height: 1.75;
-
     }
 
 
     /* =====================================================
-       LISTADO PROYECTOS
+       LISTA PROYECTOS
        ===================================================== */
 
     .projects-list {
 
-        width: calc(100% - 36px);
+        width:
+            calc(100% - 36px);
 
         padding-bottom: 60px;
-
     }
 
 
@@ -2174,7 +2529,6 @@ section {
         gap: 30px;
 
         padding: 50px 0;
-
     }
 
 
@@ -2185,7 +2539,6 @@ section {
         min-height: 0;
 
         aspect-ratio: 4 / 5;
-
     }
 
 
@@ -2198,7 +2551,6 @@ section {
         gap: 45px;
 
         padding: 0;
-
     }
 
 
@@ -2207,20 +2559,19 @@ section {
         margin-bottom: 18px;
 
         font-size: 9px;
-
     }
 
 
     .project-detail-content h2 {
 
-        font-size: clamp(
-            38px,
-            11vw,
-            55px
-        );
+        font-size:
+            clamp(
+                38px,
+                11vw,
+                55px
+            );
 
         line-height: 0.95;
-
     }
 
 
@@ -2229,25 +2580,24 @@ section {
         margin-bottom: 15px;
 
         font-size: 9px;
-
     }
 
 
     .project-meta {
 
-        gap: 10px 20px;
+        gap:
+            10px
+            20px;
 
         margin-bottom: 22px;
 
         padding-top: 15px;
-
     }
 
 
     .project-meta span {
 
         font-size: 8px;
-
     }
 
 
@@ -2258,7 +2608,6 @@ section {
         font-size: 13px;
 
         line-height: 1.75;
-
     }
 
 
@@ -2267,25 +2616,22 @@ section {
         min-height: 44px;
 
         font-size: 9px;
-
     }
 
 
     .gallery-button span {
 
         font-size: 17px;
-
     }
 
 
     /* =====================================================
-       LIGHTBOX MÓVIL
+       LIGHTBOX
        ===================================================== */
 
     .lightbox {
 
         padding: 20px;
-
     }
 
 
@@ -2294,7 +2640,6 @@ section {
         width: 100%;
 
         height: 75vh;
-
     }
 
 
@@ -2303,7 +2648,6 @@ section {
         max-width: 100%;
 
         max-height: 100%;
-
     }
 
 
@@ -2318,7 +2662,6 @@ section {
         height: 44px;
 
         font-size: 32px;
-
     }
 
 
@@ -2337,24 +2680,22 @@ section {
 
         font-size: 25px;
 
-        background: rgba(255,255,255,0.08);
+        background:
+            rgba(255,255,255,0.08);
 
         border-radius: 50%;
-
     }
 
 
     .lightbox-prev {
 
         left: 10px;
-
     }
 
 
     .lightbox-next {
 
         right: 10px;
-
     }
 
 
@@ -2363,7 +2704,6 @@ section {
         bottom: -30px;
 
         font-size: 9px;
-
     }
 
 
@@ -2377,14 +2717,12 @@ section {
             45px
             18px
             25px;
-
     }
 
 
     .footer-brand strong {
 
         font-size: 21px;
-
     }
 
 
@@ -2395,14 +2733,12 @@ section {
         gap: 15px;
 
         margin-top: 35px;
-
     }
 
 
     .footer-navigation a {
 
         font-size: 9px;
-
     }
 
 
@@ -2417,7 +2753,6 @@ section {
         font-size: 8px;
 
         line-height: 1.5;
-
     }
 
 }
@@ -2434,21 +2769,18 @@ section {
     .hero h1 {
 
         font-size: 43px;
-
     }
 
 
     .projects-intro h1 {
 
         font-size: 56px;
-
     }
 
 
     .project-detail-content h2 {
 
         font-size: 36px;
-
     }
 
 
@@ -2457,28 +2789,24 @@ section {
     .contact h2 {
 
         font-size: 46px;
-
     }
 
 
     .lightbox-content {
 
         height: 70vh;
-
     }
 
 
     .lightbox-prev {
 
         left: 5px;
-
     }
 
 
     .lightbox-next {
 
         right: 5px;
-
     }
 
 }
