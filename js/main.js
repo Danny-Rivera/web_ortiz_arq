@@ -1,12 +1,15 @@
+```javascript
 /* =========================================================
    ORTIZ ARQUITECTOS
    JAVASCRIPT PRINCIPAL
    ========================================================= */
 
+
 document.addEventListener("DOMContentLoaded", () => {
 
+
     /* =====================================================
-       PROTECCIÓN CONTRA CARGAR EL JS DOS VECES
+       EVITAR CARGAR EL SCRIPT DOS VECES
        ===================================================== */
 
     if (window.ortizArquitectosJSLoaded) {
@@ -16,114 +19,440 @@ document.addEventListener("DOMContentLoaded", () => {
     window.ortizArquitectosJSLoaded = true;
 
 
+
     /* =====================================================
-       MENÚ MÓVIL
+       HERO / SLIDESHOW
        ===================================================== */
 
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navigation = document.querySelector(".main-navigation");
-    const header = document.querySelector(".site-header");
+    const heroSlides =
+        document.querySelectorAll(".hero-slide");
 
 
-    if (menuToggle && navigation) {
+    const heroDots =
+        document.querySelectorAll(".hero-dot");
 
-        menuToggle.setAttribute("aria-expanded", "false");
+
+    const heroProjectNumber =
+        document.querySelector(".hero-project-number");
 
 
-        // Abrir / cerrar menú
-        menuToggle.addEventListener("click", (event) => {
+    const heroProjectName =
+        document.querySelector(".hero-project-name");
 
-            event.preventDefault();
-            event.stopPropagation();
 
-            const isOpen = navigation.classList.toggle("active");
+    const heroProjects = [
+        "Residencia Pilarte",
+        "Residencia Ximena Arana",
+        "Martínez Cerda",
+        "Casa Murillo",
+        "Pool House",
+        "Restaurante y Módulo Comercial"
+    ];
 
-            menuToggle.classList.toggle("active", isOpen);
 
-            if (header) {
-                header.classList.toggle("menu-open", isOpen);
-            }
+    let heroCurrentSlide = 0;
 
-            menuToggle.setAttribute(
-                "aria-expanded",
-                String(isOpen)
+    let heroInterval = null;
+
+
+    /*
+       Cambia la imagen actual.
+    */
+
+    function changeHeroSlide(index) {
+
+        if (!heroSlides.length) {
+            return;
+        }
+
+
+        /*
+           Evitar índices inválidos.
+        */
+
+        if (index < 0) {
+            index = heroSlides.length - 1;
+        }
+
+
+        if (index >= heroSlides.length) {
+            index = 0;
+        }
+
+
+        /*
+           Activar solamente la imagen correspondiente.
+        */
+
+        heroSlides.forEach((slide, i) => {
+
+            slide.classList.toggle(
+                "active",
+                i === index
             );
 
         });
 
 
-        // Cerrar menú al seleccionar una opción
+        /*
+           Actualizar indicadores.
+        */
+
+        heroDots.forEach((dot, i) => {
+
+            dot.classList.toggle(
+                "active",
+                i === index
+            );
+
+        });
+
+
+        /*
+           Guardar posición actual.
+        */
+
+        heroCurrentSlide = index;
+
+
+        /*
+           Actualizar número.
+        */
+
+        if (heroProjectNumber) {
+
+            heroProjectNumber.textContent =
+                `${String(index + 1).padStart(2, "0")} / ${String(heroSlides.length).padStart(2, "0")}`;
+        }
+
+
+        /*
+           Actualizar nombre.
+        */
+
+        if (heroProjectName) {
+
+            heroProjectName.textContent =
+                heroProjects[index] || "";
+        }
+
+    }
+
+
+
+    /*
+       Pasar a la siguiente fotografía.
+    */
+
+    function nextHeroSlide() {
+
+        if (heroSlides.length <= 1) {
+            return;
+        }
+
+
+        let nextIndex =
+            heroCurrentSlide + 1;
+
+
+        if (nextIndex >= heroSlides.length) {
+            nextIndex = 0;
+        }
+
+
+        changeHeroSlide(nextIndex);
+
+    }
+
+
+
+    /*
+       Iniciar slideshow.
+
+       5000 = 5 segundos.
+    */
+
+    function startHeroSlideshow() {
+
+        if (heroSlides.length <= 1) {
+            return;
+        }
+
+
+        clearInterval(heroInterval);
+
+
+        heroInterval =
+            setInterval(
+                nextHeroSlide,
+                5000
+            );
+
+    }
+
+
+
+    /*
+       Reiniciar contador cuando el usuario
+       pulsa un indicador.
+    */
+
+    function restartHeroSlideshow() {
+
+        clearInterval(heroInterval);
+
+        startHeroSlideshow();
+
+    }
+
+
+
+    /*
+       Indicadores inferiores.
+    */
+
+    heroDots.forEach(dot => {
+
+        dot.addEventListener(
+            "click",
+            () => {
+
+                const index =
+                    Number(
+                        dot.dataset.slide
+                    );
+
+
+                if (
+                    Number.isNaN(index) ||
+                    index < 0 ||
+                    index >= heroSlides.length
+                ) {
+                    return;
+                }
+
+
+                changeHeroSlide(index);
+
+                restartHeroSlideshow();
+
+            }
+        );
+
+    });
+
+
+
+    /*
+       Iniciar Hero.
+    */
+
+    changeHeroSlide(0);
+
+    startHeroSlideshow();
+
+
+
+    /* =====================================================
+       MENÚ MÓVIL
+       ===================================================== */
+
+    const menuToggle =
+        document.querySelector(".menu-toggle");
+
+
+    const navigation =
+        document.querySelector(".main-navigation");
+
+
+    const header =
+        document.querySelector(".site-header");
+
+
+
+    if (menuToggle && navigation) {
+
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+
+
+        /*
+           Abrir / cerrar menú.
+        */
+
+        menuToggle.addEventListener(
+            "click",
+            (event) => {
+
+                event.preventDefault();
+
+                event.stopPropagation();
+
+
+                const isOpen =
+                    navigation.classList.toggle(
+                        "active"
+                    );
+
+
+                menuToggle.classList.toggle(
+                    "active",
+                    isOpen
+                );
+
+
+                if (header) {
+
+                    header.classList.toggle(
+                        "menu-open",
+                        isOpen
+                    );
+
+                }
+
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    String(isOpen)
+                );
+
+            }
+        );
+
+
+
+        /*
+           Cerrar menú cuando se pulsa un enlace.
+        */
+
         const navigationLinks =
             navigation.querySelectorAll("a");
 
+
         navigationLinks.forEach(link => {
 
-            link.addEventListener("click", () => {
+            link.addEventListener(
+                "click",
+                () => {
 
-                navigation.classList.remove("active");
+                    navigation.classList.remove(
+                        "active"
+                    );
 
-                menuToggle.classList.remove("active");
 
-                if (header) {
-                    header.classList.remove("menu-open");
+                    menuToggle.classList.remove(
+                        "active"
+                    );
+
+
+                    if (header) {
+
+                        header.classList.remove(
+                            "menu-open"
+                        );
+
+                    }
+
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
                 }
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-            });
+            );
 
         });
 
 
-        // Cerrar menú al presionar Escape
-        document.addEventListener("keydown", (event) => {
 
-            if (event.key === "Escape") {
+        /*
+           Escape cierra el menú.
+        */
 
-                navigation.classList.remove("active");
+        document.addEventListener(
+            "keydown",
+            (event) => {
 
-                menuToggle.classList.remove("active");
+                if (event.key === "Escape") {
 
-                if (header) {
-                    header.classList.remove("menu-open");
+                    navigation.classList.remove(
+                        "active"
+                    );
+
+
+                    menuToggle.classList.remove(
+                        "active"
+                    );
+
+
+                    if (header) {
+
+                        header.classList.remove(
+                            "menu-open"
+                        );
+
+                    }
+
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
                 }
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
 
             }
+        );
 
-        });
 
 
-        // Si regresamos a escritorio, cerrar menú
-        window.addEventListener("resize", () => {
+        /*
+           Si volvemos a escritorio,
+           cerrar menú móvil.
+        */
 
-            if (window.innerWidth > 600) {
+        window.addEventListener(
+            "resize",
+            () => {
 
-                navigation.classList.remove("active");
+                if (window.innerWidth > 600) {
 
-                menuToggle.classList.remove("active");
+                    navigation.classList.remove(
+                        "active"
+                    );
 
-                if (header) {
-                    header.classList.remove("menu-open");
+
+                    menuToggle.classList.remove(
+                        "active"
+                    );
+
+
+                    if (header) {
+
+                        header.classList.remove(
+                            "menu-open"
+                        );
+
+                    }
+
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
                 }
 
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
             }
-
-        });
+        );
 
     }
+
 
 
     /* =====================================================
@@ -131,50 +460,74 @@ document.addEventListener("DOMContentLoaded", () => {
        ===================================================== */
 
     const galleryButtons =
-        document.querySelectorAll(".gallery-button");
+        document.querySelectorAll(
+            ".gallery-button"
+        );
+
 
     const lightbox =
-        document.getElementById("lightbox");
+        document.getElementById(
+            "lightbox"
+        );
+
 
     const lightboxImage =
-        document.getElementById("lightbox-image");
+        document.getElementById(
+            "lightbox-image"
+        );
+
 
     const lightboxCounter =
-        document.getElementById("lightbox-counter");
+        document.getElementById(
+            "lightbox-counter"
+        );
+
 
     const closeButton =
-        document.querySelector(".lightbox-close");
+        document.querySelector(
+            ".lightbox-close"
+        );
+
 
     const prevButton =
-        document.querySelector(".lightbox-prev");
+        document.querySelector(
+            ".lightbox-prev"
+        );
+
 
     const nextButton =
-        document.querySelector(".lightbox-next");
+        document.querySelector(
+            ".lightbox-next"
+        );
 
 
-    // Si esta página no tiene galería, no hacemos nada más
+
+    /*
+       Si estamos en una página que no tiene
+       lightbox, no ejecutamos esta parte.
+    */
+
     if (!lightbox || !lightboxImage) {
         return;
     }
 
 
-    /* =====================================================
-       VARIABLES DE LA GALERÍA
-       ===================================================== */
 
     let currentGallery = [];
 
     let currentIndex = 0;
 
 
-    /* =====================================================
-       OBTENER IMÁGENES DE UNA GALERÍA
-       ===================================================== */
+
+    /*
+       Obtener imágenes de una galería.
+    */
 
     function getGalleryImages(button) {
 
         const galleryName =
             button.dataset.gallery;
+
 
         if (!galleryName) {
             return [];
@@ -188,6 +541,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         if (!gallery) {
+
             console.warn(
                 `No se encontró la galería: gallery-${galleryName}`
             );
@@ -202,21 +556,26 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
 
-        return Array.from(galleryItems)
+        return Array
+            .from(galleryItems)
             .map(item => {
 
-                // Primero intentamos obtener el href
                 const href =
-                    item.getAttribute("href");
+                    item.getAttribute(
+                        "href"
+                    );
+
 
                 if (href) {
                     return href;
                 }
 
 
-                // Como alternativa, buscamos data-src
                 const dataSrc =
-                    item.getAttribute("data-src");
+                    item.getAttribute(
+                        "data-src"
+                    );
+
 
                 if (dataSrc) {
                     return dataSrc;
@@ -231,9 +590,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =====================================================
-       MOSTRAR IMAGEN
-       ===================================================== */
+
+    /*
+       Mostrar imagen actual.
+    */
 
     function showImage() {
 
@@ -268,9 +628,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =====================================================
-       SIGUIENTE IMAGEN
-       ===================================================== */
+
+    /*
+       Siguiente imagen.
+    */
 
     function nextImage() {
 
@@ -281,7 +642,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         currentIndex++;
 
-        if (currentIndex >= currentGallery.length) {
+
+        if (
+            currentIndex >=
+            currentGallery.length
+        ) {
 
             currentIndex = 0;
 
@@ -293,9 +658,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =====================================================
-       IMAGEN ANTERIOR
-       ===================================================== */
+
+    /*
+       Imagen anterior.
+    */
 
     function previousImage() {
 
@@ -305,6 +671,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         currentIndex--;
+
 
         if (currentIndex < 0) {
 
@@ -319,54 +686,60 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =====================================================
-       ABRIR GALERÍA
-       ===================================================== */
+
+    /*
+       Abrir galería.
+    */
 
     galleryButtons.forEach(button => {
 
-        button.addEventListener("click", (event) => {
+        button.addEventListener(
+            "click",
+            (event) => {
 
-            event.preventDefault();
+                event.preventDefault();
 
-            event.stopPropagation();
-
-
-            currentGallery =
-                getGalleryImages(button);
+                event.stopPropagation();
 
 
-            if (!currentGallery.length) {
+                currentGallery =
+                    getGalleryImages(button);
 
-                console.warn(
-                    "La galería no contiene imágenes."
+
+                if (!currentGallery.length) {
+
+                    console.warn(
+                        "La galería no contiene imágenes."
+                    );
+
+                    return;
+                }
+
+
+                currentIndex = 0;
+
+
+                showImage();
+
+
+                lightbox.classList.add(
+                    "active"
                 );
 
-                return;
+
+                document.body.style.overflow =
+                    "hidden";
 
             }
-
-
-            currentIndex = 0;
-
-
-            showImage();
-
-
-            lightbox.classList.add("active");
-
-
-            document.body.style.overflow =
-                "hidden";
-
-        });
+        );
 
     });
 
 
-    /* =====================================================
-       BOTÓN SIGUIENTE
-       ===================================================== */
+
+    /*
+       Botón siguiente.
+    */
 
     if (nextButton) {
 
@@ -386,9 +759,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =====================================================
-       BOTÓN ANTERIOR
-       ===================================================== */
+
+    /*
+       Botón anterior.
+    */
 
     if (prevButton) {
 
@@ -408,13 +782,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =====================================================
-       CERRAR GALERÍA
-       ===================================================== */
+
+    /*
+       Cerrar lightbox.
+    */
 
     function closeLightbox() {
 
-        lightbox.classList.remove("active");
+        lightbox.classList.remove(
+            "active"
+        );
 
 
         document.body.style.overflow =
@@ -432,9 +809,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =====================================================
-       BOTÓN CERRAR
-       ===================================================== */
 
     if (closeButton) {
 
@@ -454,15 +828,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =====================================================
-       CERRAR HACIENDO CLICK FUERA
-       ===================================================== */
+
+    /*
+       Cerrar haciendo clic fuera de la imagen.
+    */
 
     lightbox.addEventListener(
         "click",
         (event) => {
 
-            if (event.target === lightbox) {
+            if (
+                event.target === lightbox
+            ) {
 
                 closeLightbox();
 
@@ -472,52 +849,58 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
-    /* =====================================================
-       CONTROLES DEL TECLADO
-       ===================================================== */
+
+    /*
+       Controles de teclado.
+    */
 
     document.addEventListener(
         "keydown",
         (event) => {
 
-            // Si la galería no está abierta
-            if (!lightbox.classList.contains("active")) {
+            if (
+                !lightbox.classList.contains(
+                    "active"
+                )
+            ) {
                 return;
             }
 
 
-            // Flecha derecha
-            if (event.key === "ArrowRight") {
+            if (
+                event.key ===
+                "ArrowRight"
+            ) {
 
                 event.preventDefault();
 
                 nextImage();
 
                 return;
-
             }
 
 
-            // Flecha izquierda
-            if (event.key === "ArrowLeft") {
+            if (
+                event.key ===
+                "ArrowLeft"
+            ) {
 
                 event.preventDefault();
 
                 previousImage();
 
                 return;
-
             }
 
 
-            // Escape
-            if (event.key === "Escape") {
+            if (
+                event.key ===
+                "Escape"
+            ) {
 
                 event.preventDefault();
 
                 closeLightbox();
-
-                return;
 
             }
 
@@ -525,8 +908,9 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
+
     /* =====================================================
-       DESLIZAMIENTO EN TELÉFONOS
+       SWIPE EN TELÉFONO
        ===================================================== */
 
     let touchStartX = 0;
@@ -547,7 +931,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 event.touches[0].clientX;
 
         },
-        { passive: true }
+        {
+            passive: true
+        }
     );
 
 
@@ -555,7 +941,9 @@ document.addEventListener("DOMContentLoaded", () => {
         "touchend",
         (event) => {
 
-            if (!event.changedTouches.length) {
+            if (
+                !event.changedTouches.length
+            ) {
                 return;
             }
 
@@ -568,23 +956,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 touchStartX - touchEndX;
 
 
-            // Deslizar hacia la izquierda
             if (difference > 50) {
-
                 nextImage();
-
             }
 
 
-            // Deslizar hacia la derecha
             if (difference < -50) {
-
                 previousImage();
-
             }
 
         },
-        { passive: true }
+        {
+            passive: true
+        }
     );
 
+
 });
+```
