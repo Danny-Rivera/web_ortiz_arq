@@ -1,4 +1,3 @@
-```javascript
 /* =========================================================
    ORTIZ ARQUITECTOS
    JAVASCRIPT PRINCIPAL
@@ -973,4 +972,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 });
-```
