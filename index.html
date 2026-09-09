@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -24,11 +25,13 @@
 
 </head>
 
+
 <body>
 
-    <!-- ============================= -->
-    <!-- HEADER -->
-    <!-- ============================= -->
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
 
     <header class="site-header">
 
@@ -51,11 +54,11 @@
                 Estudio
             </a>
 
-            <a href="#servicios">
+            <a href="servicios.html">
                 Servicios
             </a>
 
-            <a href="#contacto">
+            <a href="contacto.html">
                 Contacto
             </a>
 
@@ -65,6 +68,7 @@
         <button
             class="menu-toggle"
             aria-label="Abrir menú"
+            aria-expanded="false"
         >
             <span></span>
             <span></span>
@@ -73,175 +77,215 @@
     </header>
 
 
-    <!-- ============================= -->
-    <!-- CONTENIDO PRINCIPAL -->
-    <!-- ============================= -->
+
+    <!-- =====================================================
+         CONTENIDO PRINCIPAL
+         ===================================================== -->
 
     <main>
 
 
-        <!-- ========================= -->
-        <!-- HERO -->
-        <!-- ========================= -->
+        <!-- =================================================
+             HERO / SLIDESHOW
+             ================================================= -->
 
-     <!-- ========================= -->
-<!-- HERO / SLIDESHOW -->
-<!-- ========================= -->
-
-<section
-    id="inicio"
-    class="hero"
->
-
-    <!-- IMAGENES DEL SLIDESHOW -->
-
-    <div class="hero-slideshow">
-
-        <div
-            class="hero-slide active"
-            style="background-image: url('images/rsd_pilarte/rsd_pilarte_01.webp');"
-        ></div>
-
-        <div
-            class="hero-slide"
-            style="background-image: url('images/rsd_ximena/rsd_ximena_01.webp');"
-        ></div>
-
-        <div
-            class="hero-slide"
-            style="background-image: url('images/rsd_martinez_cerda/rsd_martinez_cerda_01.webp');"
-        ></div>
-
-        <div
-            class="hero-slide"
-            style="background-image: url('images/casa_murillo/casa_murillo_01.webp');"
-        ></div>
-
-        <div
-            class="hero-slide"
-            style="background-image: url('images/pool_house/pool_house_01.webp');"
-        ></div>
-
-        <div
-            class="hero-slide"
-            style="background-image: url('images/restaurante/restaurante_01.webp');"
-        ></div>
-
-    </div>
-
-
-    <!-- CAPA OSCURA SOBRE LAS IMAGENES -->
-
-    <div class="hero-overlay"></div>
-
-
-    <!-- CONTENIDO -->
-
-    <div class="hero-content">
-
-        <p class="eyebrow">
-            Arquitectura · Diseño · Espacios
-        </p>
-
-        <h1>
-            Ortiz<br>
-            Arquitectos
-        </h1>
-
-        <p class="hero-description">
-            Diseñamos espacios que conectan
-            arquitectura, funcionalidad y entorno.
-        </p>
-
-        <a
-            href="proyectos.html"
-            class="button button-light"
+        <section
+            id="inicio"
+            class="hero"
         >
-            Ver proyectos
-        </a>
-
-    </div>
 
 
-    <!-- INFORMACION DEL PROYECTO -->
+            <!-- IMÁGENES DEL SLIDESHOW -->
 
-    <div class="hero-project">
-
-        <span class="hero-project-number">
-            01 / 06
-        </span>
-
-        <span class="hero-project-name">
-            Residencia Pilarte
-        </span>
-
-    </div>
+            <div class="hero-slideshow">
 
 
-    <!-- INDICADOR DE SCROLL -->
-
-    <div class="hero-scroll">
-
-        <span></span>
-
-        Scroll
-
-    </div>
-
-
-    <!-- INDICADORES DEL SLIDESHOW -->
-
-    <div class="hero-dots">
-
-        <button
-            class="hero-dot active"
-            data-slide="0"
-            aria-label="Ver Residencia Pilarte"
-        ></button>
-
-        <button
-            class="hero-dot"
-            data-slide="1"
-            aria-label="Ver Residencia Ximena Arana"
-        ></button>
-
-        <button
-            class="hero-dot"
-            data-slide="2"
-            aria-label="Ver Martínez Cerda"
-        ></button>
-
-        <button
-            class="hero-dot"
-            data-slide="3"
-            aria-label="Ver Casa Murillo"
-        ></button>
-
-        <button
-            class="hero-dot"
-            data-slide="4"
-            aria-label="Ver Pool House"
-        ></button>
-
-        <button
-            class="hero-dot"
-            data-slide="5"
-            aria-label="Ver Restaurante y Módulo Comercial"
-        ></button>
-
-    </div>
-
-</section>
+                <div
+                    class="hero-slide active"
+                    data-project="Residencia Pilarte"
+                >
+                    <img
+                        src="images/rsd_pilarte/rsd_pilarte_01.webp"
+                        alt="Residencia Pilarte"
+                    >
+                </div>
 
 
-        <!-- ========================= -->
-        <!-- PROYECTOS DESTACADOS -->
-        <!-- ========================= -->
+                <div
+                    class="hero-slide"
+                    data-project="Residencia Ximena Arana"
+                >
+                    <img
+                        src="images/rsd_ximena/rsd_ximena_01.webp"
+                        alt="Residencia Ximena Arana"
+                    >
+                </div>
+
+
+                <div
+                    class="hero-slide"
+                    data-project="Martínez Cerda"
+                >
+                    <img
+                        src="images/rsd_martinez_cerda/rsd_martinez_cerda_01.webp"
+                        alt="Proyecto Martínez Cerda"
+                    >
+                </div>
+
+
+                <div
+                    class="hero-slide"
+                    data-project="Casa Murillo"
+                >
+                    <img
+                        src="images/casa_murillo/casa_murillo_01.webp"
+                        alt="Casa Murillo"
+                    >
+                </div>
+
+
+                <div
+                    class="hero-slide"
+                    data-project="Pool House"
+                >
+                    <img
+                        src="images/pool_house/pool_house_01.webp"
+                        alt="Pool House"
+                    >
+                </div>
+
+
+                <div
+                    class="hero-slide"
+                    data-project="Restaurante y Módulo Comercial"
+                >
+                    <img
+                        src="images/restaurante/restaurante_01.webp"
+                        alt="Restaurante y Módulo Comercial"
+                    >
+                </div>
+
+
+            </div>
+
+
+            <!-- CAPA OSCURA -->
+
+            <div class="hero-overlay"></div>
+
+
+
+            <!-- CONTENIDO PRINCIPAL DEL HERO -->
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    Arquitectura · Diseño · Espacios
+                </p>
+
+
+                <h1>
+                    Ortiz<br>
+                    Arquitectos
+                </h1>
+
+
+                <p class="hero-description">
+                    Diseñamos espacios que conectan
+                    arquitectura, funcionalidad y entorno.
+                </p>
+
+
+                <a
+                    href="proyectos.html"
+                    class="button button-light"
+                >
+                    Ver proyectos
+                </a>
+
+            </div>
+
+
+
+            <!-- INFORMACIÓN DEL PROYECTO ACTUAL -->
+
+            <div class="hero-project">
+
+                <span class="hero-project-number">
+                    01 / 06
+                </span>
+
+                <span class="hero-project-name">
+                    Residencia Pilarte
+                </span>
+
+            </div>
+
+
+
+            <!-- INDICADORES DEL SLIDESHOW -->
+
+            <div class="hero-dots">
+
+
+                <button
+                    class="hero-dot active"
+                    data-slide="0"
+                    aria-label="Ver Residencia Pilarte"
+                ></button>
+
+
+                <button
+                    class="hero-dot"
+                    data-slide="1"
+                    aria-label="Ver Residencia Ximena Arana"
+                ></button>
+
+
+                <button
+                    class="hero-dot"
+                    data-slide="2"
+                    aria-label="Ver Martínez Cerda"
+                ></button>
+
+
+                <button
+                    class="hero-dot"
+                    data-slide="3"
+                    aria-label="Ver Casa Murillo"
+                ></button>
+
+
+                <button
+                    class="hero-dot"
+                    data-slide="4"
+                    aria-label="Ver Pool House"
+                ></button>
+
+
+                <button
+                    class="hero-dot"
+                    data-slide="5"
+                    aria-label="Ver Restaurante y Módulo Comercial"
+                ></button>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROYECTOS DESTACADOS
+             ================================================= -->
 
         <section
             id="proyectos"
             class="featured-projects"
         >
+
 
             <div class="section-header">
 
@@ -249,9 +293,11 @@
                     Portafolio
                 </p>
 
+
                 <h2>
                     Proyectos
                 </h2>
+
 
                 <p class="section-introduction">
                     Una selección de proyectos donde la
@@ -263,27 +309,35 @@
             </div>
 
 
+
             <div class="projects-grid">
 
-                <!-- Proyecto 01 -->
+
+                <!-- =========================================
+                     PROYECTO 01
+                     ========================================= -->
 
                 <article class="project-card">
 
-                    <a href="#">
+                    <a href="proyectos.html">
 
                         <div class="project-image">
 
-                            <span>
-                                Imagen
-                            </span>
+                            <img
+                                src="images/rsd_pilarte/rsd_pilarte_01.webp"
+                                alt="Residencia Pilarte"
+                                loading="lazy"
+                            >
 
                         </div>
+
 
                         <div class="project-info">
 
                             <span class="project-number">
                                 01
                             </span>
+
 
                             <div>
 
@@ -304,19 +358,25 @@
                 </article>
 
 
-                <!-- Proyecto 02 -->
+
+                <!-- =========================================
+                     PROYECTO 02
+                     ========================================= -->
 
                 <article class="project-card">
 
-                    <a href="#">
+                    <a href="proyectos.html">
 
                         <div class="project-image">
 
-                            <span>
-                                Imagen
-                            </span>
+                            <img
+                                src="images/casa_murillo/casa_murillo_01.webp"
+                                alt="Casa Murillo"
+                                loading="lazy"
+                            >
 
                         </div>
+
 
                         <div class="project-info">
 
@@ -324,10 +384,11 @@
                                 02
                             </span>
 
+
                             <div>
 
                                 <h3>
-                                    Residencia Murillo
+                                    Casa Murillo
                                 </h3>
 
                                 <p>
@@ -343,19 +404,25 @@
                 </article>
 
 
-                <!-- Proyecto 03 -->
+
+                <!-- =========================================
+                     PROYECTO 03
+                     ========================================= -->
 
                 <article class="project-card">
 
-                    <a href="#">
+                    <a href="proyectos.html">
 
                         <div class="project-image">
 
-                            <span>
-                                Imagen
-                            </span>
+                            <img
+                                src="images/rsd_ximena/rsd_ximena_01.webp"
+                                alt="Residencia Ximena Arana"
+                                loading="lazy"
+                            >
 
                         </div>
+
 
                         <div class="project-info">
 
@@ -363,10 +430,11 @@
                                 03
                             </span>
 
+
                             <div>
 
                                 <h3>
-                                    Residencia CS
+                                    Residencia Ximena Arana
                                 </h3>
 
                                 <p>
@@ -381,7 +449,9 @@
 
                 </article>
 
+
             </div>
+
 
 
             <div class="section-action">
@@ -395,23 +465,27 @@
 
             </div>
 
+
         </section>
 
 
-        <!-- ========================= -->
-        <!-- ESTUDIO -->
-        <!-- ========================= -->
+
+        <!-- =================================================
+             ESTUDIO
+             ================================================= -->
 
         <section
             id="estudio"
             class="studio"
         >
 
+
             <div class="studio-heading">
 
                 <p class="eyebrow">
                     El estudio
                 </p>
+
 
                 <h2>
                     Arquitectura
@@ -430,12 +504,14 @@
                     quienes los habitan.
                 </p>
 
+
                 <p>
                     En Ortiz Arquitectos, cada proyecto
                     parte de una búsqueda por equilibrar
                     funcionalidad, estética y relación
                     con el entorno.
                 </p>
+
 
                 <p>
                     Nuestra arquitectura busca crear
@@ -446,17 +522,20 @@
 
             </div>
 
+
         </section>
 
 
-        <!-- ========================= -->
-        <!-- SERVICIOS -->
-        <!-- ========================= -->
+
+        <!-- =================================================
+             SERVICIOS
+             ================================================= -->
 
         <section
             id="servicios"
             class="services"
         >
+
 
             <div class="section-header">
 
@@ -464,11 +543,13 @@
                     Lo que hacemos
                 </p>
 
+
                 <h2>
                     Servicios
                 </h2>
 
             </div>
+
 
 
             <div class="services-list">
@@ -492,6 +573,7 @@
                 </article>
 
 
+
                 <article class="service">
 
                     <span class="service-number">
@@ -509,6 +591,7 @@
                     </p>
 
                 </article>
+
 
 
                 <article class="service">
@@ -532,17 +615,20 @@
 
             </div>
 
+
         </section>
 
 
-        <!-- ========================= -->
-        <!-- CONTACTO -->
-        <!-- ========================= -->
+
+        <!-- =================================================
+             CONTACTO
+             ================================================= -->
 
         <section
             id="contacto"
             class="contact"
         >
+
 
             <div class="contact-content">
 
@@ -550,14 +636,16 @@
                     Hablemos
                 </p>
 
+
                 <h2>
                     ¿Tienes un proyecto
                     <br>
                     en mente?
                 </h2>
 
+
                 <a
-                    href="#"
+                    href="contacto.html"
                     class="button button-light"
                 >
                     Contactar
@@ -565,17 +653,20 @@
 
             </div>
 
+
         </section>
 
 
     </main>
 
 
-    <!-- ============================= -->
-    <!-- FOOTER -->
-    <!-- ============================= -->
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
 
     <footer class="site-footer">
+
 
         <div class="footer-brand">
 
@@ -590,6 +681,7 @@
         </div>
 
 
+
         <div class="footer-navigation">
 
             <a href="proyectos.html">
@@ -600,15 +692,16 @@
                 Estudio
             </a>
 
-            <a href="#servicios">
+            <a href="servicios.html">
                 Servicios
             </a>
 
-            <a href="#contacto">
+            <a href="contacto.html">
                 Contacto
             </a>
 
         </div>
+
 
 
         <div class="footer-bottom">
@@ -623,11 +716,17 @@
 
         </div>
 
+
     </footer>
 
 
+
+    <!-- JAVASCRIPT -->
+
     <script src="js/main.js"></script>
+
 
 </body>
 
 </html>
+```
