@@ -1,2812 +1,976 @@
+```javascript
 /* =========================================================
    ORTIZ ARQUITECTOS
-   HOJA DE ESTILOS PRINCIPAL
-
-   Incluye:
-   - Diseño general
-   - Inicio
-   - Hero / Slideshow
-   - Proyectos
-   - Galerías
-   - Lightbox
-   - Menú responsive
-   - Tablet
-   - Teléfono
+   JAVASCRIPT PRINCIPAL
    ========================================================= */
 
 
-/* =========================================================
-   01. VARIABLES
-   ========================================================= */
-
-:root {
-
-    --background: #f5f3ef;
-    --surface: #ffffff;
-
-    --dark: #171717;
-    --dark-soft: #242424;
-
-    --muted: #777777;
-
-    --border: #d5d2cc;
-
-    --max-width: 1200px;
-
-    --header-height: 90px;
-
-    --transition: 0.3s ease;
-
-}
-
-
-/* =========================================================
-   02. RESET GENERAL
-   ========================================================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-html {
-    scroll-behavior: smooth;
-}
-
-
-body {
-
-    background: var(--background);
-
-    color: var(--dark);
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    line-height: 1.6;
-
-    overflow-x: hidden;
-}
-
-
-body.lightbox-open {
-    overflow: hidden;
-}
-
-
-img {
-
-    display: block;
-
-    width: 100%;
-
-    height: auto;
-}
-
-
-a {
-
-    color: inherit;
-
-    text-decoration: none;
-}
-
-
-button {
-
-    font-family: inherit;
-}
-
-
-/* =========================================================
-   03. CONTENEDOR GENERAL
-   ========================================================= */
-
-.container {
-
-    width: min(
-        calc(100% - 80px),
-        var(--max-width)
-    );
-
-    margin: 0 auto;
-}
-
-
-/* =========================================================
-   04. HEADER
-   ========================================================= */
-
-.site-header {
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-
-    height: var(--header-height);
-
-    padding: 0 40px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    z-index: 100;
-
-    color: #ffffff;
-}
-
-
-/*
-   Header para páginas interiores.
-*/
-
-.project-header {
-
-    position: relative;
-
-    background: var(--background);
-
-    color: var(--dark);
-
-    border-bottom: 1px solid var(--border);
-}
-
-
-/* =========================================================
-   05. LOGO
-   ========================================================= */
-
-.logo {
-
-    display: flex;
-
-    flex-direction: column;
-
-    line-height: 0.9;
-
-    font-size: 22px;
-
-    font-weight: 700;
-
-    letter-spacing: 0.08em;
-}
-
-
-.logo span {
-
-    margin-top: 6px;
-
-    font-size: 9px;
-
-    font-weight: 400;
-
-    letter-spacing: 0.28em;
-}
-
-
-/* =========================================================
-   06. NAVEGACIÓN
-   ========================================================= */
-
-.main-navigation {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 32px;
-}
-
-
-.main-navigation a {
-
-    position: relative;
-
-    font-size: 12px;
-
-    letter-spacing: 0.08em;
-
-    text-transform: uppercase;
-
-    transition:
-        opacity var(--transition);
-}
-
-
-.main-navigation a:hover {
-
-    opacity: 0.55;
-}
-
-
-/*
-   Línea debajo del enlace.
-*/
-
-.main-navigation a::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-
-    bottom: -7px;
-
-    width: 0;
-
-    height: 1px;
-
-    background: currentColor;
-
-    transition:
-        width var(--transition);
-}
-
-
-.main-navigation a:hover::after {
-
-    width: 100%;
-}
-
-
-/* =========================================================
-   07. BOTÓN MENÚ MÓVIL
-   ========================================================= */
-
-.menu-toggle {
-
-    display: none;
-
-    width: 42px;
-
-    height: 42px;
-
-    padding: 0;
-
-    border: none;
-
-    background: transparent;
-
-    color: inherit;
-
-    cursor: pointer;
-
-    position: relative;
-
-    z-index: 110;
-}
-
-
-.menu-toggle span {
-
-    position: absolute;
-
-    left: 9px;
-
-    width: 24px;
-
-    height: 1px;
-
-    background: currentColor;
-
-    transition:
-        transform var(--transition),
-        top var(--transition);
-}
-
-
-.menu-toggle span:first-child {
-
-    top: 16px;
-}
-
-
-.menu-toggle span:last-child {
-
-    top: 24px;
-}
-
-
-/*
-   Hamburguesa convertida en X.
-*/
-
-.menu-toggle.active span:first-child {
-
-    top: 20px;
-
-    transform: rotate(45deg);
-}
-
-
-.menu-toggle.active span:last-child {
-
-    top: 20px;
-
-    transform: rotate(-45deg);
-}
-
-
-/* =========================================================
-   08. HERO / SLIDESHOW
-   ========================================================= */
-
-.hero {
-
-    position: relative;
-
-    min-height: 100vh;
-
-    height: 100vh;
-
-    display: flex;
-
-    align-items: center;
-
-    overflow: hidden;
-
-    background-color: var(--dark);
-}
-
-
-/* =========================================================
-   IMÁGENES DEL SLIDESHOW
-   ========================================================= */
-
-.hero-slideshow {
-
-    position: absolute;
-
-    inset: 0;
-
-    z-index: 0;
-}
-
-
-.hero-slide {
-
-    position: absolute;
-
-    inset: 0;
-
-    background-size: cover;
-
-    background-position: center;
-
-    opacity: 0;
-
-    transform: scale(1.03);
-
-    transition:
-        opacity 1.2s ease,
-        transform 6s ease;
-}
-
-
-/*
-   Imagen activa.
-*/
-
-.hero-slide.active {
-
-    opacity: 1;
-
-    transform: scale(1);
-}
-
-
-/* =========================================================
-   CAPA OSCURA SOBRE LA FOTOGRAFÍA
-   ========================================================= */
-
-.hero-overlay {
-
-    position: absolute;
-
-    inset: 0;
-
-    z-index: 1;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,0.58),
-            rgba(0,0,0,0.18)
-        );
-
-    pointer-events: none;
-}
-
-
-/* =========================================================
-   CONTENIDO DEL HERO
-   ========================================================= */
-
-.hero-content {
-
-    position: relative;
-
-    z-index: 2;
-
-    width: min(
-        calc(100% - 80px),
-        var(--max-width)
-    );
-
-    margin: 0 auto;
-
-    color: #ffffff;
-
-    padding-top: var(--header-height);
-}
-
-
-/* =========================================================
-   TEXTOS PEQUEÑOS / EYEBROW
-   ========================================================= */
-
-.eyebrow {
-
-    display: block;
-
-    margin-bottom: 18px;
-
-    font-size: 10px;
-
-    letter-spacing: 0.22em;
-
-    text-transform: uppercase;
-}
-
-
-/* =========================================================
-   TITULO PRINCIPAL
-   ========================================================= */
-
-.hero h1 {
-
-    max-width: 850px;
-
-    font-size: clamp(
-        56px,
-        8vw,
-        110px
-    );
-
-    font-weight: 400;
-
-    line-height: 0.95;
-
-    letter-spacing: -0.04em;
-}
-
-
-/* =========================================================
-   DESCRIPCIÓN
-   ========================================================= */
-
-.hero-description {
-
-    max-width: 500px;
-
-    margin-top: 30px;
-
-    font-size: 15px;
-
-    line-height: 1.7;
-}
-
-
-/* =========================================================
-   INFORMACIÓN DEL PROYECTO
-   ========================================================= */
-
-.hero-project {
-
-    position: absolute;
-
-    left: 5vw;
-
-    bottom: 50px;
-
-    z-index: 3;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 8px;
-
-    color: #ffffff;
-}
-
-
-.hero-project-number {
-
-    font-size: 11px;
-
-    letter-spacing: 0.18em;
-
-    opacity: 0.65;
-}
-
-
-.hero-project-name {
-
-    font-size: 14px;
-
-    letter-spacing: 0.04em;
-}
-
-
-/* =========================================================
-   INDICADORES DEL SLIDESHOW
-   ========================================================= */
-
-.hero-dots {
-
-    position: absolute;
-
-    right: 5vw;
-
-    bottom: 52px;
-
-    z-index: 3;
-
-    display: flex;
-
-    gap: 10px;
-}
-
-
-.hero-dot {
-
-    width: 28px;
-
-    height: 2px;
-
-    padding: 0;
-
-    border: none;
-
-    background:
-        rgba(255,255,255,0.4);
-
-    cursor: pointer;
-
-    transition:
-        width 0.3s ease,
-        background 0.3s ease;
-}
-
-
-.hero-dot.active {
-
-    width: 50px;
-
-    background: #ffffff;
-}
-
-
-/* =========================================================
-   INDICADOR DE SCROLL
-   ========================================================= */
-
-.hero-scroll {
-
-    position: absolute;
-
-    right: 5vw;
-
-    bottom: 48px;
-
-    z-index: 3;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    color: #ffffff;
-
-    font-size: 9px;
-
-    letter-spacing: 0.2em;
-
-    text-transform: uppercase;
-
-    opacity: 0.7;
-}
-
-
-.hero-scroll span {
-
-    display: block;
-
-    width: 28px;
-
-    height: 1px;
-
-    background: currentColor;
-}
-
-
-/* =========================================================
-   09. BOTONES
-   ========================================================= */
-
-.button {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 18px;
-
-    margin-top: 35px;
-
-    padding: 15px 22px;
-
-    border: 1px solid currentColor;
-
-    font-size: 11px;
-
-    letter-spacing: 0.12em;
-
-    text-transform: uppercase;
-
-    transition:
-        background var(--transition),
-        color var(--transition);
-}
-
-
-.button-light {
-
-    color: #ffffff;
-}
-
-
-.button-dark {
-
-    color: var(--dark);
-}
-
-
-.button:hover {
-
-    background: var(--dark);
-
-    color: #ffffff;
-}
-
-
-/* =========================================================
-   10. SECCIONES GENERALES
-   ========================================================= */
-
-section {
-
-    position: relative;
-}
-
-
-.section {
-
-    width: min(
-        calc(100% - 80px),
-        var(--max-width)
-    );
-
-    margin: 0 auto;
-
-    padding: 120px 0;
-}
-
-
-/* =========================================================
-   11. PROYECTOS DESTACADOS
-   ========================================================= */
-
-.featured-projects {
-
-    width: min(
-        calc(100% - 80px),
-        var(--max-width)
-    );
-
-    margin: 0 auto;
-
-    padding: 120px 0;
-}
-
-
-.section-header {
-
-    margin-bottom: 60px;
-}
-
-
-.featured-projects h2 {
-
-    margin-bottom: 20px;
-
-    font-size: clamp(
-        40px,
-        5vw,
-        72px
-    );
-
-    font-weight: 400;
-
-    line-height: 1;
-
-    letter-spacing: -0.04em;
-}
-
-
-.section-introduction {
-
-    max-width: 600px;
-
-    color: var(--muted);
-
-    font-size: 14px;
-
-    line-height: 1.8;
-}
-
-
-/* =========================================================
-   GRID DE PROYECTOS
-   ========================================================= */
-
-.projects-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 30px;
-}
-
-
-.project-card {
-
-    overflow: hidden;
-}
-
-
-.project-card a {
-
-    display: block;
-}
-
-
-.project-image {
-
-    overflow: hidden;
-
-    aspect-ratio: 4 / 5;
-
-    background: #ddd;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-}
-
-
-.project-image img {
-
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: cover;
-
-    transition:
-        transform 0.6s ease;
-}
-
-
-.project-card:hover
-.project-image img {
-
-    transform: scale(1.04);
-}
-
-
-.project-image span {
-
-    color: var(--muted);
-
-    font-size: 11px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.12em;
-}
-
-
-/* =========================================================
-   INFORMACIÓN DE TARJETA
-   ========================================================= */
-
-.project-info {
-
-    display: grid;
-
-    grid-template-columns:
-        40px 1fr;
-
-    gap: 15px;
-
-    padding-top: 20px;
-}
-
-
-.project-info h3 {
-
-    font-size: 21px;
-
-    font-weight: 400;
-
-    line-height: 1.1;
-}
-
-
-.project-info p {
-
-    margin-top: 7px;
-
-    color: var(--muted);
-
-    font-size: 10px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.1em;
-}
-
-
-.project-info .project-number {
-
-    margin: 0;
-
-    font-size: 10px;
-
-    color: var(--muted);
-}
-
-
-/* =========================================================
-   BOTÓN SECCIÓN
-   ========================================================= */
-
-.section-action {
-
-    margin-top: 70px;
-
-    text-align: center;
-}
-
-
-/* =========================================================
-   12. ESTUDIO
-   ========================================================= */
-
-.studio {
-
-    width: min(
-        calc(100% - 80px),
-        var(--max-width)
-    );
-
-    margin: 0 auto;
-
-    padding: 140px 0;
-}
-
-
-.studio-heading {
-
-    margin-bottom: 60px;
-}
-
-
-.studio h2 {
-
-    font-size: clamp(
-        44px,
-        6vw,
-        80px
-    );
-
-    font-weight: 400;
-
-    line-height: 0.95;
-
-    letter-spacing: -0.05em;
-}
-
-
-.studio-content {
-
-    max-width: 700px;
-
-    margin-left: auto;
-}
-
-
-.studio-content p {
-
-    margin-bottom: 25px;
-
-    color: var(--muted);
-
-    font-size: 15px;
-
-    line-height: 1.8;
-}
-
-
-.studio-lead {
-
-    color: var(--dark) !important;
-
-    font-size: 22px !important;
-
-    line-height: 1.4 !important;
-}
-
-
-/* =========================================================
-   13. SERVICIOS
-   ========================================================= */
-
-.services {
-
-    background: var(--surface);
-
-    padding: 120px 0;
-}
-
-
-.services .section-header {
-
-    width: min(
-        calc(100% - 80px),
-        var(--max-width)
-    );
-
-    margin:
-        0 auto
-        60px;
-}
-
-
-.services h2 {
-
-    font-size: clamp(
-        44px,
-        6vw,
-        80px
-    );
-
-    font-weight: 400;
-
-    line-height: 0.95;
-
-    letter-spacing: -0.05em;
-}
-
-
-.services-list {
-
-    width: min(
-        calc(100% - 80px),
-        var(--max-width)
-    );
-
-    margin: 0 auto;
-
-    border-top: 1px solid var(--border);
-}
-
-
-.service {
-
-    display: grid;
-
-    grid-template-columns:
-        80px 1fr 1fr;
-
-    gap: 30px;
-
-    padding: 30px 0;
-
-    border-bottom: 1px solid var(--border);
-}
-
-
-.service-number {
-
-    font-size: 11px;
-
-    color: var(--muted);
-}
-
-
-.service h3 {
-
-    font-size: 25px;
-
-    font-weight: 400;
-}
-
-
-.service p {
-
-    max-width: 450px;
-
-    color: var(--muted);
-
-    font-size: 14px;
-
-    line-height: 1.7;
-}
-
-
-/* =========================================================
-   14. CONTACTO
-   ========================================================= */
-
-.contact {
-
-    background: var(--dark);
-
-    color: #ffffff;
-
-    padding: 140px 0;
-}
-
-
-.contact-content {
-
-    width: min(
-        calc(100% - 80px),
-        var(--max-width)
-    );
-
-    margin: 0 auto;
-}
-
-
-.contact h2 {
-
-    max-width: 800px;
-
-    font-size: clamp(
-        48px,
-        7vw,
-        100px
-    );
-
-    font-weight: 400;
-
-    line-height: 0.95;
-
-    letter-spacing: -0.05em;
-}
-
-
-/* =========================================================
-   15. FOOTER
-   ========================================================= */
-
-.site-footer {
-
-    background: var(--dark);
-
-    color: #ffffff;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,0.15);
-
-    padding:
-        55px
-        40px
-        30px;
-}
-
-
-.footer-brand {
-
-    display: flex;
-
-    flex-direction: column;
-
-    line-height: 1;
-}
-
-
-.footer-brand strong {
-
-    font-size: 25px;
-
-    letter-spacing: 0.08em;
-}
-
-
-.footer-brand span {
-
-    margin-top: 7px;
-
-    font-size: 9px;
-
-    letter-spacing: 0.25em;
-}
-
-
-.footer-navigation {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 25px;
-
-    margin-top: 40px;
-}
-
-
-.footer-navigation a {
-
-    font-size: 11px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.1em;
-
-    opacity: 0.75;
-
-    transition:
-        opacity var(--transition);
-}
-
-
-.footer-navigation a:hover {
-
-    opacity: 1;
-}
-
-
-.footer-bottom {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    gap: 20px;
-
-    margin-top: 70px;
-
-    padding-top: 20px;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,0.15);
-
-    font-size: 9px;
-
-    color:
-        rgba(255,255,255,0.5);
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.08em;
-}
-
-
-/* =========================================================
-   16. PÁGINA DE PROYECTOS — INTRO
-   ========================================================= */
-
-.projects-intro {
-
-    width: min(
-        calc(100% - 80px),
-        var(--max-width)
-    );
-
-    margin: 0 auto;
-
-    padding:
-        120px
-        0
-        100px;
-}
-
-
-.projects-intro h1 {
-
-    font-size: clamp(
-        64px,
-        9vw,
-        120px
-    );
-
-    font-weight: 400;
-
-    line-height: 0.9;
-
-    letter-spacing: -0.06em;
-}
-
-
-.projects-intro p {
-
-    max-width: 600px;
-
-    margin-top: 35px;
-
-    color: var(--muted);
-
-    font-size: 15px;
-
-    line-height: 1.8;
-}
-
-
-/* =========================================================
-   17. LISTA DE PROYECTOS
-   ========================================================= */
-
-.projects-list {
-
-    width: min(
-        calc(100% - 80px),
-        1400px
-    );
-
-    margin: 0 auto;
-
-    padding-bottom: 100px;
-}
-
-
-/* =========================================================
-   18. PROYECTO INDIVIDUAL
-   ========================================================= */
-
-.project-detail {
-
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1.35fr)
-        minmax(300px, 0.65fr);
-
-    min-height: 650px;
-
-    border-top:
-        1px solid
-        var(--border);
-
-    padding: 80px 0;
-
-    gap: 80px;
-
-    position: relative;
-}
-
-
-.project-detail:nth-child(even) {
-
-    grid-template-columns:
-        minmax(300px, 0.65fr)
-        minmax(0, 1.35fr);
-}
-
-
-/* Alternancia */
-
-.project-detail:nth-child(even)
-.project-detail-image {
-
-    order: 2;
-}
-
-
-.project-detail:nth-child(even)
-.project-detail-content {
-
-    order: 1;
-}
-
-
-/* =========================================================
-   19. IMAGEN DEL PROYECTO
-   ========================================================= */
-
-.project-detail-image {
-
-    overflow: hidden;
-
-    background: #ddd;
-
-    min-height: 550px;
-}
-
-
-.project-detail-image img {
-
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: cover;
-
-    transition:
-        transform 0.8s ease;
-}
-
-
-.project-detail:hover
-.project-detail-image img {
-
-    transform: scale(1.025);
-}
-
-
-/* =========================================================
-   20. INFORMACIÓN DEL PROYECTO
-   ========================================================= */
-
-.project-detail-content {
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: space-between;
-
-    padding: 15px 0;
-}
-
-
-.project-number {
-
-    display: block;
-
-    margin-bottom: 25px;
-
-    font-size: 11px;
-
-    color: var(--muted);
-
-    letter-spacing: 0.1em;
-}
-
-
-.project-detail-content h2 {
-
-    max-width: 500px;
-
-    font-size: clamp(
-        40px,
-        5vw,
-        72px
-    );
-
-    font-weight: 400;
-
-    line-height: 0.95;
-
-    letter-spacing: -0.05em;
-}
-
-
-.project-category {
-
-    margin-bottom: 18px;
-
-    font-size: 10px;
-
-    color: var(--muted);
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.15em;
-}
-
-
-.project-meta {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 15px 30px;
-
-    margin-bottom: 30px;
-
-    padding-top: 18px;
-
-    border-top:
-        1px solid
-        var(--border);
-}
-
-
-.project-meta span {
-
-    font-size: 10px;
-
-    color: var(--muted);
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.08em;
-}
-
-
-.project-description {
-
-    max-width: 480px;
-
-    margin-bottom: 30px;
-
-    font-size: 14px;
-
-    color: var(--muted);
-
-    line-height: 1.8;
-}
-
-
-/* =========================================================
-   21. BOTÓN GALERÍA
-   ========================================================= */
-
-.gallery-button {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 20px;
-
-    padding: 0;
-
-    border: none;
-
-    background: transparent;
-
-    color: var(--dark);
-
-    cursor: pointer;
-
-    font-size: 11px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.12em;
-
-    transition:
-        opacity var(--transition);
-}
-
-
-.gallery-button span {
-
-    font-size: 18px;
-
-    line-height: 1;
-
-    transition:
-        transform var(--transition);
-}
-
-
-.gallery-button:hover {
-
-    opacity: 0.55;
-}
-
-
-.gallery-button:hover span {
-
-    transform: translateX(7px);
-}
-
-
-/* =========================================================
-   22. GALERÍA OCULTA
-   ========================================================= */
-
-.gallery-data {
-
-    display: none;
-}
-
-
-/* =========================================================
-   23. LIGHTBOX
-   ========================================================= */
-
-.lightbox {
-
-    position: fixed;
-
-    inset: 0;
-
-    width: 100%;
-
-    height: 100%;
-
-    background:
-        rgba(10,10,10,0.97);
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    z-index: 1000;
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    pointer-events: none;
-
-    transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease;
-}
-
-
-.lightbox.active {
-
-    opacity: 1;
-
-    visibility: visible;
-
-    pointer-events: auto;
-}
-
-
-/* =========================================================
-   24. CONTENIDO LIGHTBOX
-   ========================================================= */
-
-.lightbox-content {
-
-    position: relative;
-
-    width: min(
-        80vw,
-        1100px
-    );
-
-    height: min(
-        82vh,
-        800px
-    );
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-}
-
-
-.lightbox-content img {
-
-    width: auto;
-
-    height: auto;
-
-    max-width: 100%;
-
-    max-height: 100%;
-
-    object-fit: contain;
-}
-
-
-/* =========================================================
-   25. CONTADOR LIGHTBOX
-   ========================================================= */
-
-.lightbox-counter {
-
-    position: absolute;
-
-    left: 50%;
-
-    bottom: -35px;
-
-    transform:
-        translateX(-50%);
-
-    color:
-        rgba(255,255,255,0.65);
-
-    font-size: 10px;
-
-    letter-spacing: 0.12em;
-}
-
-
-/* =========================================================
-   26. CONTROLES LIGHTBOX
-   ========================================================= */
-
-.lightbox-close,
-.lightbox-prev,
-.lightbox-next {
-
-    position: absolute;
-
-    border: none;
-
-    background: transparent;
-
-    color: #ffffff;
-
-    cursor: pointer;
-
-    z-index: 5;
-
-    transition:
-        opacity var(--transition),
-        transform var(--transition);
-}
-
-
-.lightbox-close:hover,
-.lightbox-prev:hover,
-.lightbox-next:hover {
-
-    opacity: 0.5;
-}
-
-
-/* Cerrar */
-
-.lightbox-close {
-
-    top: 25px;
-
-    right: 30px;
-
-    font-size: 38px;
-
-    font-weight: 200;
-
-    line-height: 1;
-}
-
-
-/* Anterior */
-
-.lightbox-prev {
-
-    left: 35px;
-
-    top: 50%;
-
-    transform:
-        translateY(-50%);
-
-    font-size: 30px;
-}
-
-
-.lightbox-prev:hover {
-
-    transform:
-        translateY(-50%)
-        translateX(-5px);
-}
-
-
-/* Siguiente */
-
-.lightbox-next {
-
-    right: 35px;
-
-    top: 50%;
-
-    transform:
-        translateY(-50%);
-
-    font-size: 30px;
-}
-
-
-.lightbox-next:hover {
-
-    transform:
-        translateY(-50%)
-        translateX(5px);
-}
-
-
-/* =========================================================
-   27. TABLET
-   Hasta 900px
-   ========================================================= */
-
-@media (max-width: 900px) {
+document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       HEADER
+       EVITAR CARGAR EL SCRIPT DOS VECES
        ===================================================== */
 
-    .site-header {
-
-        padding: 0 25px;
+    if (window.ortizArquitectosJSLoaded) {
+        return;
     }
 
+    window.ortizArquitectosJSLoaded = true;
 
-    .main-navigation {
-
-        gap: 20px;
-    }
-
-
-    .main-navigation a {
-
-        font-size: 10px;
-    }
 
 
     /* =====================================================
-       HERO
+       HERO / SLIDESHOW
        ===================================================== */
 
-    .hero-content {
+    const heroSlides =
+        document.querySelectorAll(".hero-slide");
 
-        width: min(
-            calc(100% - 50px),
-            var(--max-width)
-        );
-    }
 
+    const heroDots =
+        document.querySelectorAll(".hero-dot");
 
-    .hero h1 {
 
-        font-size: clamp(
-            52px,
-            10vw,
-            80px
-        );
-    }
+    const heroProjectNumber =
+        document.querySelector(".hero-project-number");
 
 
-    .hero-project {
+    const heroProjectName =
+        document.querySelector(".hero-project-name");
 
-        left: 25px;
-    }
 
+    const heroProjects = [
+        "Residencia Pilarte",
+        "Residencia Ximena Arana",
+        "Martínez Cerda",
+        "Casa Murillo",
+        "Pool House",
+        "Restaurante y Módulo Comercial"
+    ];
 
-    .hero-dots {
 
-        right: 25px;
-    }
+    let heroCurrentSlide = 0;
 
+    let heroInterval = null;
 
-    /* =====================================================
-       PROYECTOS DESTACADOS
-       ===================================================== */
 
-    .featured-projects {
+    /*
+       Cambia la imagen actual.
+    */
 
-        width: calc(100% - 50px);
+    function changeHeroSlide(index) {
 
-        padding: 90px 0;
-    }
+        if (!heroSlides.length) {
+            return;
+        }
 
 
-    .projects-grid {
+        /*
+           Evitar índices inválidos.
+        */
 
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
+        if (index < 0) {
+            index = heroSlides.length - 1;
+        }
 
 
-    /* =====================================================
-       ESTUDIO
-       ===================================================== */
+        if (index >= heroSlides.length) {
+            index = 0;
+        }
 
-    .studio {
 
-        width: calc(100% - 50px);
+        /*
+           Activar solamente la imagen correspondiente.
+        */
 
-        padding: 100px 0;
-    }
+        heroSlides.forEach((slide, i) => {
 
-
-    .studio-content {
-
-        margin-left: 0;
-
-        max-width: 650px;
-    }
-
-
-    /* =====================================================
-       SERVICIOS
-       ===================================================== */
-
-    .services .section-header {
-
-        width: calc(100% - 50px);
-    }
-
-
-    .services-list {
-
-        width: calc(100% - 50px);
-    }
-
-
-    .service {
-
-        grid-template-columns:
-            60px 1fr 1fr;
-    }
-
-
-    /* =====================================================
-       CONTACTO
-       ===================================================== */
-
-    .contact-content {
-
-        width: calc(100% - 50px);
-    }
-
-
-    /* =====================================================
-       PROYECTOS
-       ===================================================== */
-
-    .projects-intro {
-
-        width: calc(100% - 50px);
-
-        padding:
-            90px
-            0
-            70px;
-    }
-
-
-    .projects-list {
-
-        width: calc(100% - 50px);
-    }
-
-
-    .project-detail,
-    .project-detail:nth-child(even) {
-
-        grid-template-columns: 1fr;
-
-        gap: 45px;
-
-        min-height: auto;
-
-        padding: 65px 0;
-    }
-
-
-    .project-detail:nth-child(even)
-    .project-detail-image {
-
-        order: initial;
-    }
-
-
-    .project-detail:nth-child(even)
-    .project-detail-content {
-
-        order: initial;
-    }
-
-
-    .project-detail-image {
-
-        min-height: 500px;
-
-        aspect-ratio: 4 / 3;
-    }
-
-
-    /* =====================================================
-       LIGHTBOX
-       ===================================================== */
-
-    .lightbox-content {
-
-        width: 78vw;
-
-        height: 78vh;
-    }
-
-
-    .lightbox-prev {
-
-        left: 18px;
-    }
-
-
-    .lightbox-next {
-
-        right: 18px;
-    }
-
-}
-
-
-/* =========================================================
-   28. TELÉFONOS
-   Hasta 600px
-   ========================================================= */
-
-@media (max-width: 600px) {
-
-
-    /* =====================================================
-       VARIABLES
-       ===================================================== */
-
-    :root {
-
-        --header-height: 70px;
-    }
-
-
-    body {
-
-        font-size: 14px;
-    }
-
-
-    /* =====================================================
-       HEADER
-       ===================================================== */
-
-    .site-header {
-
-        height: var(--header-height);
-
-        padding: 0 18px;
-    }
-
-
-    .logo {
-
-        font-size: 18px;
-    }
-
-
-    .logo span {
-
-        font-size: 7px;
-
-        letter-spacing: 0.24em;
-    }
-
-
-    /* =====================================================
-       MENÚ HAMBURGUESA
-       ===================================================== */
-
-    .menu-toggle {
-
-        display: block;
-
-        color: #ffffff;
-    }
-
-
-    .main-navigation {
-
-        position: fixed;
-
-        top: 0;
-
-        right: 0;
-
-        width: min(
-            85vw,
-            360px
-        );
-
-        height: 100vh;
-
-        padding:
-            calc(var(--header-height) + 40px)
-            35px
-            40px;
-
-        background:
-            var(--background);
-
-        color: var(--dark);
-
-        display: flex;
-
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        justify-content: flex-start;
-
-        gap: 25px;
-
-        transform:
-            translateX(100%);
-
-        transition:
-            transform 0.4s ease;
-
-        box-shadow:
-            -10px 0 40px
-            rgba(0,0,0,0.08);
-    }
-
-
-    .main-navigation.active {
-
-        transform:
-            translateX(0);
-    }
-
-
-    .main-navigation a {
-
-        font-size: 15px;
-
-        letter-spacing: 0.08em;
-    }
-
-
-    .main-navigation a::after {
-
-        bottom: -5px;
-    }
-
-
-    /* =====================================================
-       OVERLAY DEL MENÚ
-       ===================================================== */
-
-    .site-header::after {
-
-        content: "";
-
-        position: fixed;
-
-        inset: 0;
-
-        background:
-            rgba(0,0,0,0.35);
-
-        opacity: 0;
-
-        visibility: hidden;
-
-        pointer-events: none;
-
-        transition:
-            opacity 0.3s ease,
-            visibility 0.3s ease;
-
-        z-index: -1;
-    }
-
-
-    .site-header.menu-open::after {
-
-        opacity: 1;
-
-        visibility: visible;
-    }
-
-
-    /* =====================================================
-       HERO
-       ===================================================== */
-
-    .hero {
-
-        min-height: 100svh;
-
-        height: 100svh;
-    }
-
-
-    .hero-slide {
-
-        background-position:
-            center center;
-    }
-
-
-    .hero-overlay {
-
-        background:
-            linear-gradient(
-                180deg,
-                rgba(0,0,0,0.48),
-                rgba(0,0,0,0.40)
-            );
-    }
-
-
-    .hero-content {
-
-        width:
-            calc(100% - 36px);
-
-        padding-top: 70px;
-    }
-
-
-    .hero h1 {
-
-        max-width: 100%;
-
-        font-size: clamp(
-            46px,
-            15vw,
-            68px
-        );
-
-        line-height: 0.92;
-    }
-
-
-    .hero-description {
-
-        max-width: 330px;
-
-        margin-top: 22px;
-
-        font-size: 13px;
-
-        line-height: 1.65;
-    }
-
-
-    .button {
-
-        margin-top: 28px;
-
-        padding:
-            14px
-            18px;
-
-        font-size: 9px;
-    }
-
-
-    /* =====================================================
-       PROYECTO ACTUAL DEL HERO
-       ===================================================== */
-
-    .hero-project {
-
-        left: 18px;
-
-        bottom: 75px;
-    }
-
-
-    .hero-project-number {
-
-        font-size: 9px;
-    }
-
-
-    .hero-project-name {
-
-        font-size: 12px;
-    }
-
-
-    /* =====================================================
-       INDICADORES
-       ===================================================== */
-
-    .hero-dots {
-
-        right: 18px;
-
-        bottom: 42px;
-
-        gap: 6px;
-    }
-
-
-    .hero-dot {
-
-        width: 18px;
-    }
-
-
-    .hero-dot.active {
-
-        width: 32px;
-    }
-
-
-    /* =====================================================
-       SCROLL
-       ===================================================== */
-
-    .hero-scroll {
-
-        display: none;
-    }
-
-
-    /* =====================================================
-       PROYECTOS DESTACADOS
-       ===================================================== */
-
-    .featured-projects {
-
-        width:
-            calc(100% - 36px);
-
-        padding:
-            75px 0;
-    }
-
-
-    .section-header {
-
-        margin-bottom: 40px;
-    }
-
-
-    .featured-projects h2 {
-
-        margin-bottom: 20px;
-
-        font-size: 48px;
-    }
-
-
-    .section-introduction {
-
-        font-size: 13px;
-
-        line-height: 1.75;
-    }
-
-
-    .projects-grid {
-
-        grid-template-columns: 1fr;
-
-        gap: 45px;
-    }
-
-
-    .project-image {
-
-        aspect-ratio: 4 / 5;
-    }
-
-
-    .project-info {
-
-        padding-top: 17px;
-    }
-
-
-    .project-info h3 {
-
-        font-size: 21px;
-    }
-
-
-    /* =====================================================
-       ESTUDIO
-       ===================================================== */
-
-    .studio {
-
-        width:
-            calc(100% - 36px);
-
-        padding:
-            80px 0;
-    }
-
-
-    .studio-heading {
-
-        margin-bottom: 40px;
-    }
-
-
-    .studio h2 {
-
-        font-size: 52px;
-    }
-
-
-    .studio-content {
-
-        margin-left: 0;
-    }
-
-
-    .studio-lead {
-
-        font-size: 19px !important;
-    }
-
-
-    .studio-content p {
-
-        font-size: 14px;
-
-        line-height: 1.75;
-    }
-
-
-    /* =====================================================
-       SERVICIOS
-       ===================================================== */
-
-    .services {
-
-        padding: 80px 0;
-    }
-
-
-    .services .section-header {
-
-        width:
-            calc(100% - 36px);
-
-        margin-bottom: 40px;
-    }
-
-
-    .services h2 {
-
-        font-size: 52px;
-    }
-
-
-    .services-list {
-
-        width:
-            calc(100% - 36px);
-    }
-
-
-    .service {
-
-        grid-template-columns:
-            35px 1fr;
-
-        gap: 15px;
-
-        padding: 25px 0;
-    }
-
-
-    .service-number {
-
-        font-size: 9px;
-    }
-
-
-    .service h3 {
-
-        font-size: 21px;
-    }
-
-
-    .service p {
-
-        grid-column: 2;
-
-        font-size: 13px;
-
-        line-height: 1.7;
-    }
-
-
-    /* =====================================================
-       CONTACTO
-       ===================================================== */
-
-    .contact {
-
-        padding: 85px 0;
-    }
-
-
-    .contact-content {
-
-        width:
-            calc(100% - 36px);
-    }
-
-
-    .contact h2 {
-
-        font-size: 52px;
-    }
-
-
-    /* =====================================================
-       INTRO PROYECTOS
-       ===================================================== */
-
-    .projects-intro {
-
-        width:
-            calc(100% - 36px);
-
-        padding:
-            80px
-            0
-            60px;
-    }
-
-
-    .projects-intro h1 {
-
-        font-size: 64px;
-    }
-
-
-    .projects-intro p {
-
-        margin-top: 25px;
-
-        font-size: 13px;
-
-        line-height: 1.75;
-    }
-
-
-    /* =====================================================
-       LISTA PROYECTOS
-       ===================================================== */
-
-    .projects-list {
-
-        width:
-            calc(100% - 36px);
-
-        padding-bottom: 60px;
-    }
-
-
-    .project-detail,
-    .project-detail:nth-child(even) {
-
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 30px;
-
-        padding: 50px 0;
-    }
-
-
-    .project-detail-image {
-
-        width: 100%;
-
-        min-height: 0;
-
-        aspect-ratio: 4 / 5;
-    }
-
-
-    .project-detail-content {
-
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 45px;
-
-        padding: 0;
-    }
-
-
-    .project-number {
-
-        margin-bottom: 18px;
-
-        font-size: 9px;
-    }
-
-
-    .project-detail-content h2 {
-
-        font-size:
-            clamp(
-                38px,
-                11vw,
-                55px
+            slide.classList.toggle(
+                "active",
+                i === index
             );
 
-        line-height: 0.95;
+        });
+
+
+        /*
+           Actualizar indicadores.
+        */
+
+        heroDots.forEach((dot, i) => {
+
+            dot.classList.toggle(
+                "active",
+                i === index
+            );
+
+        });
+
+
+        /*
+           Guardar posición actual.
+        */
+
+        heroCurrentSlide = index;
+
+
+        /*
+           Actualizar número.
+        */
+
+        if (heroProjectNumber) {
+
+            heroProjectNumber.textContent =
+                `${String(index + 1).padStart(2, "0")} / ${String(heroSlides.length).padStart(2, "0")}`;
+        }
+
+
+        /*
+           Actualizar nombre.
+        */
+
+        if (heroProjectName) {
+
+            heroProjectName.textContent =
+                heroProjects[index] || "";
+        }
+
     }
 
 
-    .project-category {
 
-        margin-bottom: 15px;
+    /*
+       Pasar a la siguiente fotografía.
+    */
 
-        font-size: 9px;
+    function nextHeroSlide() {
+
+        if (heroSlides.length <= 1) {
+            return;
+        }
+
+
+        let nextIndex =
+            heroCurrentSlide + 1;
+
+
+        if (nextIndex >= heroSlides.length) {
+            nextIndex = 0;
+        }
+
+
+        changeHeroSlide(nextIndex);
+
     }
 
 
-    .project-meta {
 
-        gap:
-            10px
-            20px;
+    /*
+       Iniciar slideshow.
 
-        margin-bottom: 22px;
+       5000 = 5 segundos.
+    */
 
-        padding-top: 15px;
+    function startHeroSlideshow() {
+
+        if (heroSlides.length <= 1) {
+            return;
+        }
+
+
+        clearInterval(heroInterval);
+
+
+        heroInterval =
+            setInterval(
+                nextHeroSlide,
+                5000
+            );
+
     }
 
 
-    .project-meta span {
 
-        font-size: 8px;
+    /*
+       Reiniciar contador cuando el usuario
+       pulsa un indicador.
+    */
+
+    function restartHeroSlideshow() {
+
+        clearInterval(heroInterval);
+
+        startHeroSlideshow();
+
     }
 
 
-    .project-description {
 
-        margin-bottom: 25px;
+    /*
+       Indicadores inferiores.
+    */
 
-        font-size: 13px;
+    heroDots.forEach(dot => {
 
-        line-height: 1.75;
-    }
+        dot.addEventListener(
+            "click",
+            () => {
 
-
-    .gallery-button {
-
-        min-height: 44px;
-
-        font-size: 9px;
-    }
+                const index =
+                    Number(
+                        dot.dataset.slide
+                    );
 
 
-    .gallery-button span {
+                if (
+                    Number.isNaN(index) ||
+                    index < 0 ||
+                    index >= heroSlides.length
+                ) {
+                    return;
+                }
 
-        font-size: 17px;
-    }
+
+                changeHeroSlide(index);
+
+                restartHeroSlideshow();
+
+            }
+        );
+
+    });
+
+
+
+    /*
+       Iniciar Hero.
+    */
+
+    changeHeroSlide(0);
+
+    startHeroSlideshow();
+
 
 
     /* =====================================================
-       LIGHTBOX
+       MENÚ MÓVIL
        ===================================================== */
 
-    .lightbox {
+    const menuToggle =
+        document.querySelector(".menu-toggle");
 
-        padding: 20px;
+
+    const navigation =
+        document.querySelector(".main-navigation");
+
+
+    const header =
+        document.querySelector(".site-header");
+
+
+
+    if (menuToggle && navigation) {
+
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+
+
+        /*
+           Abrir / cerrar menú.
+        */
+
+        menuToggle.addEventListener(
+            "click",
+            (event) => {
+
+                event.preventDefault();
+
+                event.stopPropagation();
+
+
+                const isOpen =
+                    navigation.classList.toggle(
+                        "active"
+                    );
+
+
+                menuToggle.classList.toggle(
+                    "active",
+                    isOpen
+                );
+
+
+                if (header) {
+
+                    header.classList.toggle(
+                        "menu-open",
+                        isOpen
+                    );
+
+                }
+
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    String(isOpen)
+                );
+
+            }
+        );
+
+
+
+        /*
+           Cerrar menú cuando se pulsa un enlace.
+        */
+
+        const navigationLinks =
+            navigation.querySelectorAll("a");
+
+
+        navigationLinks.forEach(link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    navigation.classList.remove(
+                        "active"
+                    );
+
+
+                    menuToggle.classList.remove(
+                        "active"
+                    );
+
+
+                    if (header) {
+
+                        header.classList.remove(
+                            "menu-open"
+                        );
+
+                    }
+
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+            );
+
+        });
+
+
+
+        /*
+           Escape cierra el menú.
+        */
+
+        document.addEventListener(
+            "keydown",
+            (event) => {
+
+                if (event.key === "Escape") {
+
+                    navigation.classList.remove(
+                        "active"
+                    );
+
+
+                    menuToggle.classList.remove(
+                        "active"
+                    );
+
+
+                    if (header) {
+
+                        header.classList.remove(
+                            "menu-open"
+                        );
+
+                    }
+
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+
+            }
+        );
+
+
+
+        /*
+           Si volvemos a escritorio,
+           cerrar menú móvil.
+        */
+
+        window.addEventListener(
+            "resize",
+            () => {
+
+                if (window.innerWidth > 600) {
+
+                    navigation.classList.remove(
+                        "active"
+                    );
+
+
+                    menuToggle.classList.remove(
+                        "active"
+                    );
+
+
+                    if (header) {
+
+                        header.classList.remove(
+                            "menu-open"
+                        );
+
+                    }
+
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+
+            }
+        );
+
     }
 
-
-    .lightbox-content {
-
-        width: 100%;
-
-        height: 75vh;
-    }
-
-
-    .lightbox-content img {
-
-        max-width: 100%;
-
-        max-height: 100%;
-    }
-
-
-    .lightbox-close {
-
-        top: 16px;
-
-        right: 16px;
-
-        width: 44px;
-
-        height: 44px;
-
-        font-size: 32px;
-    }
-
-
-    .lightbox-prev,
-    .lightbox-next {
-
-        width: 48px;
-
-        height: 48px;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        font-size: 25px;
-
-        background:
-            rgba(255,255,255,0.08);
-
-        border-radius: 50%;
-    }
-
-
-    .lightbox-prev {
-
-        left: 10px;
-    }
-
-
-    .lightbox-next {
-
-        right: 10px;
-    }
-
-
-    .lightbox-counter {
-
-        bottom: -30px;
-
-        font-size: 9px;
-    }
 
 
     /* =====================================================
-       FOOTER
+       GALERÍA / LIGHTBOX
        ===================================================== */
 
-    .site-footer {
+    const galleryButtons =
+        document.querySelectorAll(
+            ".gallery-button"
+        );
 
-        padding:
-            45px
-            18px
-            25px;
+
+    const lightbox =
+        document.getElementById(
+            "lightbox"
+        );
+
+
+    const lightboxImage =
+        document.getElementById(
+            "lightbox-image"
+        );
+
+
+    const lightboxCounter =
+        document.getElementById(
+            "lightbox-counter"
+        );
+
+
+    const closeButton =
+        document.querySelector(
+            ".lightbox-close"
+        );
+
+
+    const prevButton =
+        document.querySelector(
+            ".lightbox-prev"
+        );
+
+
+    const nextButton =
+        document.querySelector(
+            ".lightbox-next"
+        );
+
+
+
+    /*
+       Si estamos en una página que no tiene
+       lightbox, no ejecutamos esta parte.
+    */
+
+    if (!lightbox || !lightboxImage) {
+        return;
     }
 
 
-    .footer-brand strong {
 
-        font-size: 21px;
+    let currentGallery = [];
+
+    let currentIndex = 0;
+
+
+
+    /*
+       Obtener imágenes de una galería.
+    */
+
+    function getGalleryImages(button) {
+
+        const galleryName =
+            button.dataset.gallery;
+
+
+        if (!galleryName) {
+            return [];
+        }
+
+
+        const gallery =
+            document.getElementById(
+                `gallery-${galleryName}`
+            );
+
+
+        if (!gallery) {
+
+            console.warn(
+                `No se encontró la galería: gallery-${galleryName}`
+            );
+
+            return [];
+        }
+
+
+        const galleryItems =
+            gallery.querySelectorAll(
+                "[data-gallery-item]"
+            );
+
+
+        return Array
+            .from(galleryItems)
+            .map(item => {
+
+                const href =
+                    item.getAttribute(
+                        "href"
+                    );
+
+
+                if (href) {
+                    return href;
+                }
+
+
+                const dataSrc =
+                    item.getAttribute(
+                        "data-src"
+                    );
+
+
+                if (dataSrc) {
+                    return dataSrc;
+                }
+
+
+                return null;
+
+            })
+            .filter(Boolean);
+
     }
 
 
-    .footer-navigation {
 
-        flex-direction: column;
+    /*
+       Mostrar imagen actual.
+    */
 
-        gap: 15px;
+    function showImage() {
 
-        margin-top: 35px;
+        if (!currentGallery.length) {
+            return;
+        }
+
+
+        const image =
+            currentGallery[currentIndex];
+
+
+        if (!image) {
+            return;
+        }
+
+
+        lightboxImage.src = image;
+
+
+        lightboxImage.alt =
+            `Imagen ${currentIndex + 1} de ${currentGallery.length}`;
+
+
+        if (lightboxCounter) {
+
+            lightboxCounter.textContent =
+                `${currentIndex + 1} / ${currentGallery.length}`;
+
+        }
+
     }
 
 
-    .footer-navigation a {
 
-        font-size: 9px;
+    /*
+       Siguiente imagen.
+    */
+
+    function nextImage() {
+
+        if (currentGallery.length <= 1) {
+            return;
+        }
+
+
+        currentIndex++;
+
+
+        if (
+            currentIndex >=
+            currentGallery.length
+        ) {
+
+            currentIndex = 0;
+
+        }
+
+
+        showImage();
+
     }
 
 
-    .footer-bottom {
 
-        flex-direction: column;
+    /*
+       Imagen anterior.
+    */
 
-        gap: 10px;
+    function previousImage() {
 
-        margin-top: 45px;
-
-        font-size: 8px;
-
-        line-height: 1.5;
-    }
-
-}
+        if (currentGallery.length <= 1) {
+            return;
+        }
 
 
-/* =========================================================
-   29. TELÉFONOS MUY PEQUEÑOS
-   Hasta 380px
-   ========================================================= */
-
-@media (max-width: 380px) {
+        currentIndex--;
 
 
-    .hero h1 {
+        if (currentIndex < 0) {
 
-        font-size: 43px;
-    }
+            currentIndex =
+                currentGallery.length - 1;
+
+        }
 
 
-    .projects-intro h1 {
+        showImage();
 
-        font-size: 56px;
     }
 
 
-    .project-detail-content h2 {
 
-        font-size: 36px;
+    /*
+       Abrir galería.
+    */
+
+    galleryButtons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            (event) => {
+
+                event.preventDefault();
+
+                event.stopPropagation();
+
+
+                currentGallery =
+                    getGalleryImages(button);
+
+
+                if (!currentGallery.length) {
+
+                    console.warn(
+                        "La galería no contiene imágenes."
+                    );
+
+                    return;
+                }
+
+
+                currentIndex = 0;
+
+
+                showImage();
+
+
+                lightbox.classList.add(
+                    "active"
+                );
+
+
+                document.body.style.overflow =
+                    "hidden";
+
+            }
+        );
+
+    });
+
+
+
+    /*
+       Botón siguiente.
+    */
+
+    if (nextButton) {
+
+        nextButton.addEventListener(
+            "click",
+            (event) => {
+
+                event.preventDefault();
+
+                event.stopPropagation();
+
+                nextImage();
+
+            }
+        );
+
     }
 
 
-    .studio h2,
-    .services h2,
-    .contact h2 {
 
-        font-size: 46px;
+    /*
+       Botón anterior.
+    */
+
+    if (prevButton) {
+
+        prevButton.addEventListener(
+            "click",
+            (event) => {
+
+                event.preventDefault();
+
+                event.stopPropagation();
+
+                previousImage();
+
+            }
+        );
+
     }
 
 
-    .lightbox-content {
 
-        height: 70vh;
+    /*
+       Cerrar lightbox.
+    */
+
+    function closeLightbox() {
+
+        lightbox.classList.remove(
+            "active"
+        );
+
+
+        document.body.style.overflow =
+            "";
+
+
+        lightboxImage.src =
+            "";
+
+
+        currentGallery = [];
+
+        currentIndex = 0;
+
     }
 
 
-    .lightbox-prev {
 
-        left: 5px;
+    if (closeButton) {
+
+        closeButton.addEventListener(
+            "click",
+            (event) => {
+
+                event.preventDefault();
+
+                event.stopPropagation();
+
+                closeLightbox();
+
+            }
+        );
+
     }
 
 
-    .lightbox-next {
 
-        right: 5px;
-    }
+    /*
+       Cerrar haciendo clic fuera de la imagen.
+    */
 
-}
+    lightbox.addEventListener(
+        "click",
+        (event) => {
+
+            if (
+                event.target === lightbox
+            ) {
+
+                closeLightbox();
+
+            }
+
+        }
+    );
+
+
+
+    /*
+       Controles de teclado.
+    */
+
+    document.addEventListener(
+        "keydown",
+        (event) => {
+
+            if (
+                !lightbox.classList.contains(
+                    "active"
+                )
+            ) {
+                return;
+            }
+
+
+            if (
+                event.key ===
+                "ArrowRight"
+            ) {
+
+                event.preventDefault();
+
+                nextImage();
+
+                return;
+            }
+
+
+            if (
+                event.key ===
+                "ArrowLeft"
+            ) {
+
+                event.preventDefault();
+
+                previousImage();
+
+                return;
+            }
+
+
+            if (
+                event.key ===
+                "Escape"
+            ) {
+
+                event.preventDefault();
+
+                closeLightbox();
+
+            }
+
+        }
+    );
+
+
+
+    /* =====================================================
+       SWIPE EN TELÉFONO
+       ===================================================== */
+
+    let touchStartX = 0;
+
+    let touchEndX = 0;
+
+
+    lightbox.addEventListener(
+        "touchstart",
+        (event) => {
+
+            if (!event.touches.length) {
+                return;
+            }
+
+
+            touchStartX =
+                event.touches[0].clientX;
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    lightbox.addEventListener(
+        "touchend",
+        (event) => {
+
+            if (
+                !event.changedTouches.length
+            ) {
+                return;
+            }
+
+
+            touchEndX =
+                event.changedTouches[0].clientX;
+
+
+            const difference =
+                touchStartX - touchEndX;
+
+
+            if (difference > 50) {
+                nextImage();
+            }
+
+
+            if (difference < -50) {
+                previousImage();
+            }
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+});
+```
