@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto — Ortiz Arquitectos</title>
+    <meta name="description" content="Ponte en contacto con Ortiz Arquitectos. Diseñamos y desarrollamos proyectos arquitectónicos pensados para responder a tus necesidades.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header / Navegación principal -->
+    <header>
+        <a aria-label="Ortiz Arquitectos - Inicio" href="index.html">
+            <img alt="Ortiz Arquitectos" src="images/logo_ortis_arq.webp">
+        </a>
+
+        <nav>
+            <a href="proyectos.html">Proyectos</a>
+            <a href="index.html#estudio">Estudio</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="contacto.html" class="active">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Sección Contacto -->
+        <section class="contact-hero">
+            <div class="contact-hero__intro">
+                <p class="section-tagline">Hablemos</p>
+                <h1>Iniciar un proyecto</h1>
+                <p class="section-description">
+                    Estamos listos para transformar tus ideas en espacios funcionales y contemporáneos. Cuéntanos sobre tu visión o consulta cualquier duda sobre nuestros servicios.
+                </p>
+            </div>
+        </section>
+
+        <!-- Bloque Principal de Contacto -->
+        <section class="contact-section">
+            <div class="contact-grid">
+
+                <!-- Columna Izquierda: Información de Contacto -->
+                <div class="contact-info">
+                    <h2>Información</h2>
+                    
+                    <div class="contact-info__item">
+                        <h3>Ubicación</h3>
+                        <p>Managua, Nicaragua</p>
+                    </div>
+
+                    <div class="contact-info__item">
+                        <h3>Correo Electrónico</h3>
+                        <p><a href="mailto:contacto@ortizarquitectos.com">contacto@ortizarquitectos.com</a></p>
+                    </div>
+
+                    <div class="contact-info__item">
+                        <h3>Teléfono / WhatsApp</h3>
+                        <p><a href="tel:+50500000000">+505 0000-0000</a></p>
+                    </div>
+
+                    <div class="contact-info__item">
+                        <h3>Horarios de Atención</h3>
+                        <p>Lunes a Viernes: 8:00 AM – 5:00 PM</p>
+                    </div>
+
+                    <div class="contact-info__item">
+                        <h3>Redes Sociales</h3>
+                        <div class="social-links">
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Formulario de Contacto -->
+                <div class="contact-form-wrapper">
+                    <h2>Cuéntanos sobre tu proyecto</h2>
+                    
+                    <!-- Formulario (Reemplaza la URL del action con tu ID de Formspree cuando lo crees) -->
+                    <form id="contact-form" action="https://formspree.io/f/xljeyowl" method="POST" class="contact-form">
+                        
+                        <div class="form-group">
+                            <label for="name">Nombre completo *</label>
+                            <input type="text" id="name" name="name" required placeholder="Ej. Juan Pérez">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Correo electrónico *</label>
+                            <input type="email" id="email" name="email" required placeholder="ejemplo@correo.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Teléfono / WhatsApp</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+505 8888 8888">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="project-type">Tipo de proyecto</label>
+                            <select id="project-type" name="project_type">
+                                <option value="" disabled selected>Selecciona una opción</option>
+                                <option value="Vivienda Unifamiliar">Vivienda Unifamiliar</option>
+                                <option value="Comercial / Restaurante">Comercial / Restaurante</option>
+                                <option value="Remodelación">Remodelación</option>
+                                <option value="Consultoría / Diseño">Consultoría / Diseño</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Mensaje *</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Describe brevemente la idea, ubicación estimada o detalles del proyecto..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Enviar consulta</button>
+                    </form>
+
+                    <!-- Mensaje de confirmación que JS revelará tras el envío -->
+                    <div id="form-status" class="form-status" style="display: none;">
+                        <p class="status-success">✓ ¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <a aria-label="Ortiz Arquitectos - Inicio" href="index.html">
+            <img alt="Ortiz Arquitectos" src="images/logo_ortis_arq.webp">
+        </a>
+
+        <div>
+            <a href="proyectos.html">Proyectos</a>
+            <a href="index.html#estudio">Estudio</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+
+        <div>
+            <span>© 2026 Ortiz Arquitectos</span>
+            <span>Diseño y desarrollo web por Lic. Danny Rivera</span>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
