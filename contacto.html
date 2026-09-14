@@ -1,177 +1,378 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto — Ortiz Arquitectos</title>
-    <meta name="description" content="Ponte en contacto con Ortiz Arquitectos. Diseñamos y desarrollamos proyectos arquitectónicos pensados para responder a tus necesidades.">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
 
-    <!-- Header / Navegación principal -->
-    <header>
-        <a aria-label="Ortiz Arquitectos - Inicio" href="index.html">
-            <img alt="Ortiz Arquitectos" src="images/logo_ortis_arq.webp">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Contacto de Ortiz Arquitectos. Cuéntanos sobre tu próximo proyecto de arquitectura."
+    >
+
+    <title>Contacto | Ortiz Arquitectos</title>
+
+    <link
+        rel="stylesheet"
+        href="css/styles.css"
+    >
+</head>
+
+<body class="contact-page">
+
+    <!-- =====================================================
+         ENCABEZADO
+         ===================================================== -->
+
+    <header class="site-header project-header">
+
+        <a
+            href="index.html"
+            class="logo"
+            aria-label="Ortiz Arquitectos - Inicio"
+        >
+            <img
+                src="images/logo_ortis_arq.webp"
+                alt="Ortiz Arquitectos"
+            >
         </a>
 
-        <nav>
-            <a href="proyectos.html">Proyectos</a>
-            <a href="index.html#estudio">Estudio</a>
-            <a href="servicios.html">Servicios</a>
-            <a href="contacto.html" class="active">Contacto</a>
+        <nav
+            class="main-navigation"
+            id="main-navigation"
+            aria-label="Navegación principal"
+        >
+            <a href="index.html">Inicio</a>
+
+            <a href="proyectos.html">
+                Proyectos
+            </a>
+
+            <a href="index.html#estudio">
+                Estudio
+            </a>
+
+            <a href="servicios.html">
+                Servicios
+            </a>
+
+            <a
+                href="contacto.html"
+                aria-current="page"
+            >
+                Contacto
+            </a>
         </nav>
+
+        <button
+            class="menu-toggle"
+            type="button"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="main-navigation"
+        >
+            <span></span>
+            <span></span>
+        </button>
+
     </header>
 
+
+    <!-- =====================================================
+         CONTENIDO PRINCIPAL
+         ===================================================== -->
+
     <main>
-        <!-- Hero Sección Contacto -->
-        <section class="contacto-seccion">
-  <div>
-    <p>Hablemos</p>
-    <h2>¿Tienes un proyecto en mente?</h2>
-  </div>
 
-  <div class="contacto-grid">
-    <!-- Columna Información -->
-    <div class="contacto-info">
-      <h3>Ubicación</h3>
-      <p>Managua, Nicaragua</p>
-      
-      <h3>Correo</h3>
-      <p>contacto@ortizarquitectos.com</p>
-    </div>
-
-    <!-- Columna Formulario -->
-    <form id="contact-form" action="https://formspree.io/f/TU_ID_AQUI" method="POST" class="contacto-form">
-      <div class="field">
-        <label for="name">Nombre</label>
-        <input type="text" id="name" name="name" required placeholder="Tu nombre">
-      </div>
-
-      <div class="field">
-        <label for="email">Correo electrónico</label>
-        <input type="email" id="email" name="email" required placeholder="tu@correo.com">
-      </div>
-
-      <div class="field">
-        <label for="message">Mensaje</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-      </div>
-
-      <button type="submit">Enviar mensaje</button>
-    </form>
-  </div>
-</section>
-
-
-        <!-- Bloque Principal de Contacto -->
         <section class="contact-section">
-            <div class="contact-grid">
 
-                <!-- Columna Izquierda: Información de Contacto -->
-                <div class="contact-info">
-                    <h2>Información</h2>
-                    
-                    <div class="contact-info__item">
-                        <h3>Ubicación</h3>
-                        <p>Managua, Nicaragua</p>
+            <div class="contact-intro">
+
+                <p class="section-eyebrow">
+                    CONTACTO
+                </p>
+
+                <h1>
+                    Hablemos de<br>
+                    tu próximo proyecto.
+                </h1>
+
+                <p class="contact-description">
+                    Cuéntanos sobre tu proyecto, tus ideas o el espacio
+                    que tienes en mente. Estaremos encantados de conocer
+                    más y conversar contigo.
+                </p>
+
+
+                <div class="contact-details">
+
+                    <div class="contact-detail">
+                        <span class="contact-detail-label">
+                            UBICACIÓN
+                        </span>
+
+                        <p>
+                            Managua, Nicaragua
+                        </p>
                     </div>
 
-                    <div class="contact-info__item">
-                        <h3>Correo Electrónico</h3>
-                        <p><a href="mailto:contacto@ortizarquitectos.com">contacto@ortizarquitectos.com</a></p>
+
+                    <div class="contact-detail">
+                        <span class="contact-detail-label">
+                            CORREO
+                        </span>
+
+                        <p>
+                            Escríbenos a través del formulario.
+                        </p>
                     </div>
 
-                    <div class="contact-info__item">
-                        <h3>Teléfono / WhatsApp</h3>
-                        <p><a href="tel:+50500000000">+505 0000-0000</a></p>
+
+                    <div class="contact-detail">
+                        <span class="contact-detail-label">
+                            REDES
+                        </span>
+
+                        <p>
+                            Instagram · Facebook
+                        </p>
                     </div>
 
-                    <div class="contact-info__item">
-                        <h3>Horarios de Atención</h3>
-                        <p>Lunes a Viernes: 8:00 AM – 5:00 PM</p>
-                    </div>
-
-                    <div class="contact-info__item">
-                        <h3>Redes Sociales</h3>
-                        <div class="social-links">
-                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Columna Derecha: Formulario de Contacto -->
-                <div class="contact-form-wrapper">
-                    <h2>Cuéntanos sobre tu proyecto</h2>
-                    
-                    <!-- Formulario (Reemplaza la URL del action con tu ID de Formspree cuando lo crees) -->
-                    <form id="contact-form" action="https://formspree.io/f/xljeyowl" method="POST" class="contact-form">
-                        
-                        <div class="form-group">
-                            <label for="name">Nombre completo *</label>
-                            <input type="text" id="name" name="name" required placeholder="Ej. Juan Pérez">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Correo electrónico *</label>
-                            <input type="email" id="email" name="email" required placeholder="ejemplo@correo.com">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone">Teléfono / WhatsApp</label>
-                            <input type="tel" id="phone" name="phone" placeholder="+505 8888 8888">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="project-type">Tipo de proyecto</label>
-                            <select id="project-type" name="project_type">
-                                <option value="" disabled selected>Selecciona una opción</option>
-                                <option value="Vivienda Unifamiliar">Vivienda Unifamiliar</option>
-                                <option value="Comercial / Restaurante">Comercial / Restaurante</option>
-                                <option value="Remodelación">Remodelación</option>
-                                <option value="Consultoría / Diseño">Consultoría / Diseño</option>
-                                <option value="Otro">Otro</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Mensaje *</label>
-                            <textarea id="message" name="message" rows="5" required placeholder="Describe brevemente la idea, ubicación estimada o detalles del proyecto..."></textarea>
-                        </div>
-
-                        <button type="submit" class="btn-submit">Enviar consulta</button>
-                    </form>
-
-                    <!-- Mensaje de confirmación que JS revelará tras el envío -->
-                    <div id="form-status" class="form-status" style="display: none;">
-                        <p class="status-success">✓ ¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.</p>
-                    </div>
                 </div>
 
             </div>
+
+
+            <!-- =================================================
+                 FORMULARIO
+                 ================================================= -->
+
+            <div class="contact-form-wrapper">
+
+                <form
+                    action="https://formspree.io/f/xljeyowl"
+                    method="POST"
+                    class="contact-form"
+                >
+
+                    <!-- Nombre -->
+
+                    <div class="form-field">
+
+                        <label for="name">
+                            Nombre
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Tu nombre"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Correo -->
+
+                    <div class="form-field">
+
+                        <label for="email">
+                            Correo electrónico
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="tu@email.com"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Teléfono -->
+
+                    <div class="form-field">
+
+                        <label for="phone">
+                            Teléfono
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="+505 0000 0000"
+                            autocomplete="tel"
+                        >
+
+                    </div>
+
+
+                    <!-- Tipo de proyecto -->
+
+                    <div class="form-field">
+
+                        <label for="project-type">
+                            Tipo de proyecto
+                        </label>
+
+                        <select
+                            id="project-type"
+                            name="project-type"
+                        >
+
+                            <option value="">
+                                Selecciona una opción
+                            </option>
+
+                            <option value="Residencial">
+                                Residencial
+                            </option>
+
+                            <option value="Comercial">
+                                Comercial
+                            </option>
+
+                            <option value="Remodelación">
+                                Remodelación
+                            </option>
+
+                            <option value="Interiorismo">
+                                Interiorismo
+                            </option>
+
+                            <option value="Otro">
+                                Otro
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Mensaje -->
+
+                    <div class="form-field form-field-message">
+
+                        <label for="message">
+                            Cuéntanos sobre tu proyecto
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="6"
+                            placeholder="Cuéntanos brevemente qué tienes en mente..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- Asunto interno para Formspree -->
+
+                    <input
+                        type="hidden"
+                        name="_subject"
+                        value="Nueva consulta desde Ortiz Arquitectos"
+                    >
+
+
+                    <!-- Botón -->
+
+                    <button
+                        type="submit"
+                        class="contact-submit"
+                    >
+                        <span>
+                            Enviar consulta
+                        </span>
+
+                        <span aria-hidden="true">
+                            →
+                        </span>
+                    </button>
+
+                </form>
+
+            </div>
+
         </section>
+
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <a aria-label="Ortiz Arquitectos - Inicio" href="index.html">
-            <img alt="Ortiz Arquitectos" src="images/logo_ortis_arq.webp">
-        </a>
 
-        <div>
-            <a href="proyectos.html">Proyectos</a>
-            <a href="index.html#estudio">Estudio</a>
-            <a href="servicios.html">Servicios</a>
-            <a href="contacto.html">Contacto</a>
+    <!-- =====================================================
+         PIE DE PÁGINA
+         ===================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-inner">
+
+            <a
+                href="index.html"
+                class="footer-logo"
+                aria-label="Ortiz Arquitectos - Inicio"
+            >
+                <img
+                    src="images/logo_ortis_arq.webp"
+                    alt="Ortiz Arquitectos"
+                >
+            </a>
+
+
+            <nav
+                class="footer-navigation"
+                aria-label="Navegación secundaria"
+            >
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                <a href="proyectos.html">
+                    Proyectos
+                </a>
+
+                <a href="index.html#estudio">
+                    Estudio
+                </a>
+
+                <a href="servicios.html">
+                    Servicios
+                </a>
+
+                <a href="contacto.html">
+                    Contacto
+                </a>
+            </nav>
+
+
+            <p class="footer-credit">
+                Diseño y desarrollo web por Lic. Danny Rivera
+            </p>
+
         </div>
 
-        <div>
-            <span>© 2026 Ortiz Arquitectos</span>
-            <span>Diseño y desarrollo web por Lic. Danny Rivera</span>
-        </div>
     </footer>
 
-    <script src="main.js"></script>
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="js/main.js"></script>
+
 </body>
 </html>
+```
