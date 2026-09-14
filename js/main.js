@@ -972,3 +972,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 });
+const contactForm = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    
+    const response = await fetch(event.target.action, {
+      method: contactForm.method,
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+    
+    if (response.ok) {
+      formStatus.style.display = 'block';
+      contactForm.reset();
+      contactForm.style.display = 'none'; // Oculta el formulario o muestra solo la confirmación
+    } else {
+      alert("Ocurrió un problema al enviar tu mensaje. Por favor intenta nuevamente.");
+    }
+  });
+}
