@@ -278,21 +278,23 @@ button {
 }
 
 
+/* =========================================================
+   MENÚ HAMBURGUESA
+   ========================================================= */
+
 .menu-toggle span {
 
-    position: absolute;
-
-    left: 9px;
+    display: block;
 
     width: 24px;
+    height: 2px;
 
-    height: 1px;
-
-    background: currentColor;
+    background: #171717;
 
     transition:
-        transform var(--transition),
-        top var(--transition);
+        transform 0.3s ease,
+        opacity 0.3s ease;
+
 }
 
 
