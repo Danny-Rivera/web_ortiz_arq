@@ -15,6 +15,11 @@
         content="Proyectos de arquitectura de Ortiz Arquitectos."
     >
 
+    <meta
+        name="theme-color"
+        content="#171717"
+    >
+
     <title>Proyectos — Ortiz Arquitectos</title>
 
     <link
@@ -34,25 +39,37 @@
 
     <header class="site-header project-header">
 
+        <!-- LOGO -->
+
         <a
             href="index.html"
             class="logo"
+            aria-label="Ortiz Arquitectos - Inicio"
         >
-            ORTIZ
 
-            <span>
-                ARQUITECTOS
-            </span>
+            <img
+                src="images/logo_ortis_arq.webp"
+                alt="Ortiz Arquitectos"
+            >
+
         </a>
 
 
-        <nav class="main-navigation">
+        <!-- NAVEGACIÓN -->
+
+        <nav
+            class="main-navigation"
+            aria-label="Navegación principal"
+        >
 
             <a href="index.html">
                 Inicio
             </a>
 
-            <a href="proyectos.html">
+            <a
+                href="proyectos.html"
+                aria-current="page"
+            >
                 Proyectos
             </a>
 
@@ -60,25 +77,30 @@
                 Estudio
             </a>
 
-            <a href="index.html#servicios">
+            <a href="servicios.html">
                 Servicios
             </a>
 
-            <a href="index.html#contacto">
+            <a href="contacto.html">
                 Contacto
             </a>
 
         </nav>
 
 
-        <!-- Menú móvil -->
+        <!-- MENÚ MÓVIL -->
 
         <button
             class="menu-toggle"
+            type="button"
             aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="main-navigation"
         >
+
             <span></span>
             <span></span>
+
         </button>
 
     </header>
@@ -120,7 +142,10 @@
              LISTADO DE PROYECTOS
              ================================================== -->
 
-        <section class="projects-list">
+        <section
+            class="projects-list"
+            aria-label="Proyectos de Ortiz Arquitectos"
+        >
 
 
 
@@ -138,6 +163,8 @@
                     <img
                         src="images/rsd_pilarte/rsd_pilarte_01.webp"
                         alt="Residencia Pilarte"
+                        loading="eager"
+                        decoding="async"
                     >
 
                 </div>
@@ -187,10 +214,16 @@
 
                         <button
                             class="gallery-button"
+                            type="button"
                             data-gallery="pilarte"
                         >
+
                             Explorar proyecto
-                            <span>→</span>
+
+                            <span aria-hidden="true">
+                                →
+                            </span>
+
                         </button>
 
                     </div>
@@ -204,6 +237,7 @@
                 <div
                     class="gallery-data"
                     id="gallery-pilarte"
+                    aria-hidden="true"
                 >
 
                     <a
@@ -286,6 +320,8 @@
                     <img
                         src="images/rsd_ximena/rsd_ximena_01.webp"
                         alt="Residencia Ximena Arana"
+                        loading="lazy"
+                        decoding="async"
                     >
 
                 </div>
@@ -335,10 +371,16 @@
 
                         <button
                             class="gallery-button"
+                            type="button"
                             data-gallery="ximena"
                         >
+
                             Explorar proyecto
-                            <span>→</span>
+
+                            <span aria-hidden="true">
+                                →
+                            </span>
+
                         </button>
 
                     </div>
@@ -352,6 +394,7 @@
                 <div
                     class="gallery-data"
                     id="gallery-ximena"
+                    aria-hidden="true"
                 >
 
                     <a
@@ -423,7 +466,9 @@
 
                     <img
                         src="images/rsd_martinez_cerda/rsd_martinez_cerda_01.webp"
-                        alt="Residencia Martínez Cerda"
+                        alt="Martínez Cerda"
+                        loading="lazy"
+                        decoding="async"
                     >
 
                 </div>
@@ -473,10 +518,16 @@
 
                         <button
                             class="gallery-button"
+                            type="button"
                             data-gallery="martinez"
                         >
+
                             Explorar proyecto
-                            <span>→</span>
+
+                            <span aria-hidden="true">
+                                →
+                            </span>
+
                         </button>
 
                     </div>
@@ -490,6 +541,7 @@
                 <div
                     class="gallery-data"
                     id="gallery-martinez"
+                    aria-hidden="true"
                 >
 
                     <a
@@ -537,6 +589,8 @@
                     <img
                         src="images/casa_murillo/casa_murillo_01.webp"
                         alt="Casa Murillo"
+                        loading="lazy"
+                        decoding="async"
                     >
 
                 </div>
@@ -584,10 +638,16 @@
 
                         <button
                             class="gallery-button"
+                            type="button"
                             data-gallery="murillo"
                         >
+
                             Explorar proyecto
-                            <span>→</span>
+
+                            <span aria-hidden="true">
+                                →
+                            </span>
+
                         </button>
 
                     </div>
@@ -601,6 +661,7 @@
                 <div
                     class="gallery-data"
                     id="gallery-murillo"
+                    aria-hidden="true"
                 >
 
                     <a
@@ -673,6 +734,8 @@
                     <img
                         src="images/pool_house/pool_house_01.webp"
                         alt="Pool House"
+                        loading="lazy"
+                        decoding="async"
                     >
 
                 </div>
@@ -699,342 +762,4 @@
                             Arquitectura Residencial
                         </p>
 
-                        <div class="project-meta">
-
-                            <span>
-                                Residencial
-                            </span>
-
-                            <span>
-                                Managua, Nicaragua
-                            </span>
-
-                        </div>
-
-
-                        <p class="project-description">
-                            Proyecto enfocado en la creación de un
-                            espacio complementario de convivencia,
-                            descanso y relación con el exterior.
-                        </p>
-
-
-                        <button
-                            class="gallery-button"
-                            data-gallery="pool-house"
-                        >
-                            Explorar proyecto
-                            <span>→</span>
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- GALERÍA OCULTA -->
-
-                <div
-                    class="gallery-data"
-                    id="gallery-pool-house"
-                >
-
-                    <a
-                        href="images/pool_house/pool_house_01.webp"
-                        data-gallery-item
-                    ></a>
-
-                    <a
-                        href="images/pool_house/pool_house_02.webp"
-                        data-gallery-item
-                    ></a>
-
-                    <a
-                        href="images/pool_house/pool_house_03.webp"
-                        data-gallery-item
-                    ></a>
-
-                    <a
-                        href="images/pool_house/pool_house_04.webp"
-                        data-gallery-item
-                    ></a>
-
-                    <a
-                        href="images/pool_house/pool_house_05.webp"
-                        data-gallery-item
-                    ></a>
-
-                    <a
-                        href="images/pool_house/pool_house_06.webp"
-                        data-gallery-item
-                    ></a>
-
-                    <a
-                        href="images/pool_house/pool_house_07.webp"
-                        data-gallery-item
-                    ></a>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- ==================================================
-                 PROYECTO 06 — RESTAURANTE
-                 ================================================== -->
-
-            <article
-                class="project-detail"
-                id="restaurante"
-            >
-
-                <div class="project-detail-image">
-
-                    <img
-                        src="images/restaurante/restaurante_01.webp"
-                        alt="Restaurante y Módulo Comercial"
-                    >
-
-                </div>
-
-
-                <div class="project-detail-content">
-
-                    <div>
-
-                        <span class="project-number">
-                            06
-                        </span>
-
-                        <h2>
-                            Restaurante y Módulo Comercial
-                        </h2>
-
-                    </div>
-
-
-                    <div>
-
-                        <p class="project-category">
-                            Arquitectura Comercial
-                        </p>
-
-                        <div class="project-meta">
-
-                            <span>
-                                Comercial
-                            </span>
-
-                            <span>
-                                Nicaragua
-                            </span>
-
-                        </div>
-
-
-                        <p class="project-description">
-                            Proyecto de arquitectura comercial
-                            orientado a integrar identidad,
-                            funcionalidad y experiencia espacial.
-                        </p>
-
-
-                        <button
-                            class="gallery-button"
-                            data-gallery="restaurante"
-                        >
-                            Explorar proyecto
-                            <span>→</span>
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- GALERÍA OCULTA -->
-
-                <div
-                    class="gallery-data"
-                    id="gallery-restaurante"
-                >
-
-                    <a
-                        href="images/restaurante/restaurante_01.webp"
-                        data-gallery-item
-                    ></a>
-
-                    <a
-                        href="images/restaurante/restaurante_02.webp"
-                        data-gallery-item
-                    ></a>
-
-                    <a
-                        href="images/restaurante/restaurante_03.webp"
-                        data-gallery-item
-                    ></a>
-
-                    <a
-                        href="images/restaurante/restaurante_04.webp"
-                        data-gallery-item
-                    ></a>
-
-                    <a
-                        href="images/restaurante/restaurante_05.webp"
-                        data-gallery-item
-                    ></a>
-
-                </div>
-
-            </article>
-
-
-
-        </section>
-
-    </main>
-
-
-
-    <!-- ==================================================
-         LIGHTBOX / VISOR DE IMÁGENES
-         ================================================== -->
-
-    <div
-        class="lightbox"
-        id="lightbox"
-        aria-hidden="true"
-    >
-
-
-        <!-- CERRAR -->
-
-        <button
-            class="lightbox-close"
-            aria-label="Cerrar galería"
-        >
-            ×
-        </button>
-
-
-
-        <!-- IMAGEN ANTERIOR -->
-
-        <button
-            class="lightbox-prev"
-            aria-label="Imagen anterior"
-        >
-            ←
-        </button>
-
-
-
-        <!-- CONTENEDOR DE IMAGEN -->
-
-        <div class="lightbox-content">
-
-            <img
-                id="lightbox-image"
-                src=""
-                alt=""
-            >
-
-
-            <div
-                class="lightbox-counter"
-                id="lightbox-counter"
-            >
-                1 / 1
-            </div>
-
-        </div>
-
-
-
-        <!-- IMAGEN SIGUIENTE -->
-
-        <button
-            class="lightbox-next"
-            aria-label="Imagen siguiente"
-        >
-            →
-        </button>
-
-
-    </div>
-
-
-
-    <!-- ==================================================
-         FOOTER
-         ================================================== -->
-
-    <footer class="site-footer">
-
-
-        <div class="footer-brand">
-
-            <strong>
-                ORTIZ
-            </strong>
-
-            <span>
-                ARQUITECTOS
-            </span>
-
-        </div>
-
-
-        <div class="footer-navigation">
-
-            <a href="index.html">
-                Inicio
-            </a>
-
-            <a href="proyectos.html">
-                Proyectos
-            </a>
-
-            <a href="index.html#estudio">
-                Estudio
-            </a>
-
-            <a href="index.html#contacto">
-                Contacto
-            </a>
-
-        </div>
-
-
-        <div class="footer-bottom">
-
-            <span>
-                © 2026 Ortiz Arquitectos
-            </span>
-
-            <span>
-                Arquitectura · Diseño · Espacios
-            </span>
-
-        </div>
-
-
-    </footer>
-
-
-
-    <!-- ==================================================
-         JAVASCRIPT
-         IMPORTANTE:
-         SOLO DEBE EXISTIR UNA LLAMADA A main.js
-         ================================================== -->
-
-    <script src="js/main.js"></script>
-
-
-</body>
-
-</html>
+                        <div class="projec
