@@ -25,15 +25,44 @@
 
     <main>
         <!-- Hero Sección Contacto -->
-        <section class="contact-hero">
-            <div class="contact-hero__intro">
-                <p class="section-tagline">Hablemos</p>
-                <h1>Iniciar un proyecto</h1>
-                <p class="section-description">
-                    Estamos listos para transformar tus ideas en espacios funcionales y contemporáneos. Cuéntanos sobre tu visión o consulta cualquier duda sobre nuestros servicios.
-                </p>
-            </div>
-        </section>
+        <section class="contacto-seccion">
+  <div>
+    <p>Hablemos</p>
+    <h2>¿Tienes un proyecto en mente?</h2>
+  </div>
+
+  <div class="contacto-grid">
+    <!-- Columna Información -->
+    <div class="contacto-info">
+      <h3>Ubicación</h3>
+      <p>Managua, Nicaragua</p>
+      
+      <h3>Correo</h3>
+      <p>contacto@ortizarquitectos.com</p>
+    </div>
+
+    <!-- Columna Formulario -->
+    <form id="contact-form" action="https://formspree.io/f/TU_ID_AQUI" method="POST" class="contacto-form">
+      <div class="field">
+        <label for="name">Nombre</label>
+        <input type="text" id="name" name="name" required placeholder="Tu nombre">
+      </div>
+
+      <div class="field">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" required placeholder="tu@correo.com">
+      </div>
+
+      <div class="field">
+        <label for="message">Mensaje</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+      </div>
+
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  </div>
+</section>
+
 
         <!-- Bloque Principal de Contacto -->
         <section class="contact-section">
