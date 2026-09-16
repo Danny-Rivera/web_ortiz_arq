@@ -2104,31 +2104,61 @@ section {
        HERO
        ===================================================== */
 
+    /* =====================================================
+       HERO EN TELÉFONOS
+       Mantener proporción original 16:9
+       ===================================================== */
+
     .hero {
 
-        min-height:
-            100svh;
+        width: 100%;
 
-        height:
-            100svh;
+        height: auto;
+
+        min-height: 0;
+
+        aspect-ratio: 16 / 9;
+
+        overflow: hidden;
+
     }
 
 
-    .hero-slide img {
+    .hero-slideshow {
 
-        /*
-           En teléfono la pantalla es más vertical que
-           la fotografía 16:9.
+        width: 100%;
 
-           Cover permite ocupar toda la pantalla sin
-           deformar la fotografía.
-        */
+        height: 100%;
 
-        object-position:
-            center center;
     }
 
 
+    .hero-slide {
+
+        width: 100%;
+
+        height: 100%;
+
+        transform: scale(1.03);
+
+    }
+
+
+    .hero-slide.active {
+
+        transform: scale(1);
+
+    }
+
+    .hero-slide {
+
+        background-size: 100% 100%;
+
+        background-position: center center;
+
+        background-repeat: no-repeat;
+
+    }
     .hero-overlay {
 
         background:
