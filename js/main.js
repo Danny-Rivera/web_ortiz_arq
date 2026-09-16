@@ -510,7 +510,151 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
+    /* =====================================================
+       PRECARGA DE IMÁGENES DE LAS GALERÍAS
+       ===================================================== */
 
+    /*
+       Guarda las imágenes que ya fueron solicitadas
+       para evitar descargarlas más de una vez.
+    */
+
+    const preloadedImages = new Set();
+
+
+    /*
+       Precarga una imagen en segundo plano.
+    */
+
+    function preloadImage(src) {
+
+        if (!src || preloadedImages.has(src)) {
+            return;
+        }
+
+
+        preloadedImages.add(src);
+
+
+        const image = new Image();
+
+        image.src = src;
+
+    }
+
+
+
+    /*
+       Precarga todas las imágenes existentes
+       dentro de las galerías.
+    */
+
+    function preloadAllGalleryImages() {
+
+        const galleryItems =
+            document.querySelectorAll(
+                "[data-gallery-item]"
+            );
+
+
+        if (!galleryItems.length) {
+            return;
+        }
+
+
+        const imageSources =
+            Array.from(galleryItems)
+                .map(item => {
+
+                    const href =
+                        item.getAttribute("href");
+
+
+                    if (href) {
+                        return href;
+                    }
+
+
+                    const dataSrc =
+                        item.getAttribute("data-src");
+
+
+                    if (dataSrc) {
+                        return dataSrc;
+                    }
+
+
+                    return null;
+
+                })
+                .filter(Boolean);
+
+
+        /*
+           Cargar las imágenes progresivamente
+           para no saturar la conexión de golpe.
+        */
+
+        let index = 0;
+
+
+        function loadNextImage() {
+
+            if (index >= imageSources.length) {
+                return;
+            }
+
+
+            preloadImage(
+                imageSources[index]
+            );
+
+
+            index++;
+
+
+            /*
+               Pequeña separación entre solicitudes.
+               Esto permite que la página siga respondiendo
+               mientras las imágenes se descargan.
+            */
+
+            setTimeout(
+                loadNextImage,
+                80
+            );
+
+        }
+
+
+        loadNextImage();
+
+    }
+
+
+
+    /*
+       Iniciar precarga cuando el navegador
+       tenga un momento libre.
+    */
+
+    if (
+        "requestIdleCallback"
+        in window
+    ) {
+
+        requestIdleCallback(
+            preloadAllGalleryImages
+        );
+
+    } else {
+
+        setTimeout(
+            preloadAllGalleryImages,
+            300
+        );
+
+    }
 
     let currentGallery = [];
 
@@ -590,7 +734,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    /*
+     /*
        Mostrar imagen actual.
     */
 
@@ -610,6 +754,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
+        /*
+           Mostrar imagen actual.
+        */
+
         lightboxImage.src = image;
 
 
@@ -617,10 +765,51 @@ document.addEventListener("DOMContentLoaded", () => {
             `Imagen ${currentIndex + 1} de ${currentGallery.length}`;
 
 
+        /*
+           Actualizar contador.
+        */
+
         if (lightboxCounter) {
 
             lightboxCounter.textContent =
                 `${currentIndex + 1} / ${currentGallery.length}`;
+
+        }
+
+
+        /*
+           Precargar imagen siguiente.
+        */
+
+        const nextIndex =
+            (currentIndex + 1) %
+            currentGallery.length;
+
+
+        if (currentGallery[nextIndex]) {
+
+            preloadImage(
+                currentGallery[nextIndex]
+            );
+
+        }
+
+
+        /*
+           Precargar imagen anterior.
+        */
+
+        const previousIndex =
+            (currentIndex - 1 +
+                currentGallery.length) %
+            currentGallery.length;
+
+
+        if (currentGallery[previousIndex]) {
+
+            preloadImage(
+                currentGallery[previousIndex]
+            );
 
         }
 
