@@ -2175,6 +2175,11 @@ section {
        Ajustado al nuevo banner 16:9
        ===================================================== */
 
+    /* =====================================================
+       HERO — TEXTO AJUSTADO AL BANNER 16:9
+       SOLO TELÉFONOS
+       ===================================================== */
+
     .hero-content {
 
         width:
@@ -2182,55 +2187,83 @@ section {
 
         padding-top:
             0;
+
     }
 
 
     .eyebrow {
 
         margin-bottom:
-            10px;
+            8px;
 
         font-size:
-            8px;
+            7px;
 
         letter-spacing:
             0.18em;
+
+        line-height:
+            1.2;
     }
 
 
     .hero h1 {
 
         max-width:
-            100%;
+            380px;
 
         font-size:
             clamp(
                 30px,
-                8.5vw,
-                42px
+                8vw,
+                38px
             );
 
         line-height:
-            0.92;
+            0.9;
 
         letter-spacing:
-            -0.04em;
+            -0.045em;
+
     }
 
 
     .hero-description {
 
         max-width:
-            280px;
+            270px;
 
         margin-top:
-            14px;
+            12px;
 
         font-size:
-            11px;
+            10px;
 
         line-height:
             1.45;
+
+    }
+
+
+    /* =====================================================
+       BOTÓN
+       ===================================================== */
+
+    .button {
+
+        margin-top:
+            18px;
+
+        padding:
+            10px
+            15px;
+
+        font-size:
+            8px;
+
+        letter-spacing:
+            0.11em;
+
     }
 
 
@@ -2241,7 +2274,7 @@ section {
     .hero-project {
 
         top:
-            72px;
+            78px;
 
         right:
             18px;
@@ -2260,6 +2293,7 @@ section {
 
         text-align:
             right;
+
     }
 
 
@@ -2267,19 +2301,24 @@ section {
 
         font-size:
             8px;
+
+        letter-spacing:
+            0.14em;
+
     }
 
 
     .hero-project-name {
 
         max-width:
-            140px;
+            135px;
 
         font-size:
             10px;
 
         line-height:
             1.2;
+
     }
 
 
@@ -2293,7 +2332,7 @@ section {
             18px;
 
         bottom:
-            14px;
+            15px;
 
         left:
             18px;
@@ -2303,6 +2342,7 @@ section {
 
         justify-content:
             flex-end;
+
     }
 
 
@@ -2313,6 +2353,7 @@ section {
 
         height:
             2px;
+
     }
 
 
@@ -2320,6 +2361,7 @@ section {
 
         width:
             25px;
+
     }
 
 
@@ -2858,58 +2900,51 @@ section {
    Hasta 380px
    ========================================================= */
 
+
 @media (max-width: 380px) {
 
-
     .hero h1 {
-        font-size: 43px;
+        font-size: 32px;
     }
-
 
     .hero-project {
-        top: 88px;
+        top: 72px;
     }
-
 
     .hero-project-name {
-        max-width: 150px;
-        font-size: 11px;
+        max-width: 120px;
+        font-size: 9px;
     }
-
 
     .projects-intro h1 {
         font-size: 56px;
     }
 
-
     .project-detail-content h2 {
         font-size: 36px;
     }
 
-
     .studio h2,
     .services h2,
     .contact h2 {
-
         font-size: 46px;
     }
-
 
     .lightbox-content {
         height: 70vh;
     }
 
-
     .lightbox-prev {
         left: 5px;
     }
-
 
     .lightbox-next {
         right: 5px;
     }
 
 }
+
+
 /* =========================================================
    PÁGINA DE CONTACTO
    ========================================================= */
