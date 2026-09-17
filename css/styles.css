@@ -2101,10 +2101,6 @@ section {
 
 
     /* =====================================================
-       HERO
-       ===================================================== */
-
-    /* =====================================================
        HERO EN TELÉFONOS
        Mantener proporción original 16:9
        ===================================================== */
@@ -2170,15 +2166,6 @@ section {
     }
 
 
-       /* =====================================================
-       TEXTO DEL HERO EN TELÉFONOS
-       Ajustado al nuevo banner 16:9
-       ===================================================== */
-
-    /* =====================================================
-       HERO — TEXTO AJUSTADO AL BANNER 16:9
-       SOLO TELÉFONOS
-       ===================================================== */
 
         /* =====================================================
        HERO — DISTRIBUCIÓN PARA TELÉFONOS
@@ -2256,7 +2243,26 @@ section {
 
 }
 
+/* =====================================================
+   BOTÓN VER PROYECTOS — TELÉFONOS
+   Posición independiente para evitar que se corte
+   ===================================================== */
 
+.hero-content .button {
+
+    position: absolute;
+
+    left: 0;
+
+    top: 142px;
+
+    margin-top: 0;
+
+    z-index: 10;
+
+    white-space: nowrap;
+
+}
     /* =====================================================
        BOTÓN
        ===================================================== */
@@ -2922,11 +2928,18 @@ section {
 }
 
 .button {
-    margin-top: 10px;
-    padding: 7px 12px;
-    font-size: 6.5px;
-}
 
+    top: 135px;
+
+    margin-top: 0;
+
+    padding:
+        7px
+        12px;
+
+    font-size: 6.5px;
+
+}
     .projects-intro h1 {
         font-size: 56px;
     }
