@@ -2202,14 +2202,14 @@ section {
        HERO — DISTRIBUCIÓN PARA TELÉFONOS
        ===================================================== */
 
-    .hero-content {
+    .hero-content {         /* este es el espacio que hay entre el logo y las palabras Arquitectura-diseño-espacios */
 
         position: absolute;
 
         left: 18px;
         right: 18px;
 
-        top: 82px;
+        top: 78px;
 
         width: auto;
 
@@ -2224,21 +2224,21 @@ section {
        TEXTO SUPERIOR
        ===================================================== */
 
-    .eyebrow {
+   .eyebrow {
 
-        display: block;
+    display: block;
 
-        margin-bottom: 7px;
+    margin-bottom: 4px;
 
-        font-size: 6.5px;
+    font-size: 6.5px;
 
-        letter-spacing: 0.16em;
+    letter-spacing: 0.13em;
 
-        line-height: 1.2;
+    line-height: 1.1;
 
-        white-space: nowrap;
+    white-space: nowrap;
 
-    }
+}
 
 
     /* =====================================================
@@ -2285,7 +2285,7 @@ section {
 
     left: 0;
 
-    top: 142px;
+    top: 118px;
 
     margin-top: 0;
 
@@ -2943,7 +2943,7 @@ section {
     }
 
     .hero-content {
-        top: 108px;
+        top: 78px;
     }
 
     .hero-project {
@@ -2959,8 +2959,6 @@ section {
 }
 
 .button {
-
-    top: 135px;
 
     margin-top: 0;
 
