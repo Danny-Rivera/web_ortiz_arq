@@ -1,0 +1,454 @@
+/* =========================================================
+   PÁGINA DE SERVICIOS
+   ORTIZ ARQUITECTOS
+   ========================================================= */
+
+
+/* =========================================================
+   INTRODUCCIÓN
+   ========================================================= */
+
+.services-intro {
+    width: 100%;
+    min-height: 72vh;
+    display: flex;
+    align-items: flex-end;
+    background: var(--background);
+    border-bottom: 1px solid var(--border);
+}
+
+.services-intro-inner {
+    width: min(calc(100% - 80px), var(--max-width));
+    margin: 0 auto;
+    padding: 150px 0 90px;
+}
+
+.services-intro .section-eyebrow,
+.services-list-section .section-eyebrow,
+.services-process .section-eyebrow,
+.services-contact .section-eyebrow {
+    display: block;
+    margin-bottom: 28px;
+    font-size: 11px;
+    line-height: 1.2;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.services-intro h1 {
+    max-width: 950px;
+    margin: 0;
+    font-size: clamp(54px, 7vw, 100px);
+    font-weight: 400;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+}
+
+.services-intro p {
+    max-width: 520px;
+    margin-top: 42px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   LISTA DE SERVICIOS
+   ========================================================= */
+
+.services-list-section {
+    width: min(calc(100% - 80px), var(--max-width));
+    margin: 0 auto;
+    padding: 120px 0 140px;
+}
+
+.services-list-header {
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+}
+
+.services-list-header .section-eyebrow {
+    margin-bottom: 0;
+}
+
+
+/* ITEM */
+
+.service-item {
+    display: grid;
+    grid-template-columns: 70px minmax(300px, 1fr) minmax(300px, 0.8fr);
+    gap: 40px;
+    padding: 48px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+    transition: padding-left 0.35s ease;
+}
+
+.service-item:hover {
+    padding-left: 12px;
+}
+
+
+/* NÚMERO */
+
+.service-item-number {
+    padding-top: 8px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+}
+
+
+/* TÍTULO */
+
+.service-item-title h2 {
+    margin: 0;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+}
+
+
+/* DESCRIPCIÓN */
+
+.service-item-description {
+    padding-top: 5px;
+}
+
+.service-item-description p {
+    max-width: 430px;
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   NUESTRO ENFOQUE
+   ========================================================= */
+
+.services-process {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    padding: 140px max(40px, calc((100vw - var(--max-width)) / 2));
+    background: var(--surface);
+}
+
+.services-process-heading h2 {
+    margin: 0;
+    font-size: clamp(44px, 5vw, 72px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+.services-process-text {
+    max-width: 500px;
+    padding-top: 42px;
+}
+
+.services-process-text p {
+    margin: 0 0 28px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--muted);
+}
+
+.services-process-text p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   CONTACTO / CTA
+   ========================================================= */
+
+.services-contact {
+    width: 100%;
+    background: var(--dark);
+    color: #ffffff;
+}
+
+.services-contact-inner {
+    width: min(calc(100% - 80px), var(--max-width));
+    margin: 0 auto;
+    padding: 140px 0 150px;
+}
+
+.services-contact .section-eyebrow {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.services-contact h2 {
+    max-width: 800px;
+    margin: 0;
+    font-size: clamp(50px, 7vw, 96px);
+    font-weight: 400;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+}
+
+.services-contact .button {
+    margin-top: 55px;
+}
+
+
+/* =========================================================
+   BOTÓN CLARO
+   ========================================================= */
+
+.button-light {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    padding: 14px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    color: #ffffff;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.button-light span {
+    font-size: 17px;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.button-light:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: var(--dark);
+}
+
+.button-light:hover span {
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .services-intro-inner {
+        width: min(calc(100% - 50px), var(--max-width));
+        padding: 130px 0 75px;
+    }
+
+    .services-intro {
+        min-height: 65vh;
+    }
+
+    .services-list-section {
+        width: min(calc(100% - 50px), var(--max-width));
+        padding: 90px 0 100px;
+    }
+
+    .service-item {
+        grid-template-columns: 50px 1fr;
+        gap: 20px 30px;
+    }
+
+    .service-item-description {
+        grid-column: 2;
+        padding-top: 0;
+    }
+
+    .services-process {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 100px 25px;
+    }
+
+    .services-process-text {
+        padding-top: 0;
+    }
+
+    .services-contact-inner {
+        width: min(calc(100% - 50px), var(--max-width));
+        padding: 100px 0 110px;
+    }
+}
+
+
+/* =========================================================
+   MÓVIL
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    /* INTRO */
+
+    .services-intro {
+        min-height: auto;
+    }
+
+    .services-intro-inner {
+        width: calc(100% - 36px);
+        padding: 120px 0 65px;
+    }
+
+    .services-intro .section-eyebrow {
+        margin-bottom: 20px;
+        font-size: 9px;
+    }
+
+    .services-intro h1 {
+        font-size: clamp(42px, 12vw, 58px);
+        line-height: 0.98;
+    }
+
+    .services-intro p {
+        max-width: 100%;
+        margin-top: 28px;
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+
+    /* LISTA */
+
+    .services-list-section {
+        width: calc(100% - 36px);
+        padding: 70px 0 75px;
+    }
+
+    .services-list-header {
+        padding-bottom: 20px;
+    }
+
+    .services-list-section .section-eyebrow {
+        font-size: 9px;
+    }
+
+    .service-item {
+        grid-template-columns: 35px 1fr;
+        gap: 10px 15px;
+        padding: 32px 0;
+    }
+
+    .service-item:hover {
+        padding-left: 0;
+    }
+
+    .service-item-number {
+        padding-top: 5px;
+        font-size: 9px;
+    }
+
+    .service-item-title h2 {
+        font-size: 27px;
+        line-height: 1.05;
+    }
+
+    .service-item-description {
+        grid-column: 2;
+        padding-top: 5px;
+    }
+
+    .service-item-description p {
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+
+    /* ENFOQUE */
+
+    .services-process {
+        padding: 75px 18px;
+        gap: 35px;
+    }
+
+    .services-process .section-eyebrow {
+        margin-bottom: 20px;
+        font-size: 9px;
+    }
+
+    .services-process-heading h2 {
+        font-size: 42px;
+        line-height: 1;
+    }
+
+    .services-process-text {
+        max-width: 100%;
+    }
+
+    .services-process-text p {
+        margin-bottom: 22px;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+
+    /* CONTACTO */
+
+    .services-contact-inner {
+        width: calc(100% - 36px);
+        padding: 80px 0 90px;
+    }
+
+    .services-contact .section-eyebrow {
+        margin-bottom: 20px;
+        font-size: 9px;
+    }
+
+    .services-contact h2 {
+        font-size: 47px;
+        line-height: 0.98;
+    }
+
+    .services-contact .button {
+        margin-top: 40px;
+    }
+
+    .button-light {
+        padding: 12px 16px;
+        font-size: 9px;
+        gap: 15px;
+    }
+
+}
+
+
+/* =========================================================
+   MÓVILES PEQUEÑOS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .services-intro-inner {
+        padding-top: 110px;
+    }
+
+    .services-intro h1 {
+        font-size: 38px;
+    }
+
+    .services-intro p {
+        font-size: 13px;
+    }
+
+    .service-item-title h2 {
+        font-size: 24px;
+    }
+
+    .services-process-heading h2 {
+        font-size: 37px;
+    }
+
+    .services-contact h2 {
+        font-size: 42px;
+    }
+
+}
