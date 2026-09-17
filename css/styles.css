@@ -2244,17 +2244,17 @@ section {
        DESCRIPCIÓN
        ===================================================== */
 
-    .hero-description {
+  .hero-description {
 
-        max-width: 255px;
+    max-width: 255px;
 
-        margin-top: 13px;
+    margin-top: 10px;
 
-        font-size: 9.5px;
+    font-size: 9.5px;
 
-        line-height: 1.4;
+    line-height: 1.35;
 
-    }
+}
 
 
     /* =====================================================
@@ -2917,6 +2917,15 @@ section {
         max-width: 110px;
         font-size: 8px;
     }
+   .hero-description {
+    margin-top: 9px;
+}
+
+.button {
+    margin-top: 10px;
+    padding: 7px 12px;
+    font-size: 6.5px;
+}
 
     .projects-intro h1 {
         font-size: 56px;
