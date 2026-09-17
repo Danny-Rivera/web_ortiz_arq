@@ -2261,19 +2261,21 @@ section {
        BOTÓN
        ===================================================== */
 
-    .button {
+   .button {
 
-        margin-top: 17px;
+    margin-top: 12px;
 
-        padding:
-            9px
-            14px;
+    padding:
+        8px
+        13px;
 
-        font-size: 7.5px;
+    font-size: 7px;
 
-        letter-spacing: 0.11em;
+    letter-spacing: 0.10em;
 
-    }
+    line-height: 1;
+
+}
 
 
     /* =====================================================
