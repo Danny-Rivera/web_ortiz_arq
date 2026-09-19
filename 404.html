@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
-        
+
 <head>
-    
-<link rel="icon" type="image/ico" href="images/favicon.ico">
-    
+
     <meta charset="UTF-8">
 
     <meta
@@ -13,48 +11,71 @@
     >
 
     <meta
-        name="description"
-        content="Ortiz Arquitectos — Arquitectura, diseño y espacios."
+        name="robots"
+        content="noindex"
     >
 
-    <title>Ortiz Arquitectos</title>
+    <meta
+        name="description"
+        content="Página no encontrada | Ortiz Arquitectos"
+    >
+
+    <title>Página no encontrada | Ortiz Arquitectos</title>
+
+    <link
+        rel="icon"
+        type="image/x-icon"
+        href="images/favicon.ico"
+    >
 
     <link
         rel="stylesheet"
-        href="css/styles.css"
+        href="css/404.css"
     >
 
 </head>
 
 
-<body>
+<body class="error-page">
 
 
     <!-- =====================================================
          HEADER
          ===================================================== -->
 
-    <header class="site-header">
-
-<a
-    href="index.html"
-    class="logo"
-    aria-label="Ortiz Arquitectos - Inicio"
->
-    <img
-        src="images/logo_ortis_arq.webp"
-        alt="Ortiz Arquitectos"
-    >
-</a>
+    <header class="site-header project-header">
 
 
-        <nav class="main-navigation">
+        <a
+            href="index.html"
+            class="logo"
+            aria-label="Ortiz Arquitectos - Inicio"
+        >
+
+            <img
+                src="images/logo_ortis_arq.webp"
+                alt="Ortiz Arquitectos"
+            >
+
+        </a>
+
+
+
+        <nav
+            class="main-navigation"
+            id="main-navigation"
+            aria-label="Navegación principal"
+        >
+
+            <a href="index.html">
+                Inicio
+            </a>
 
             <a href="proyectos.html">
                 Proyectos
             </a>
 
-            <a href="#estudio">
+            <a href="index.html#estudio">
                 Estudio
             </a>
 
@@ -69,18 +90,71 @@
         </nav>
 
 
+
         <button
             class="menu-toggle"
+            type="button"
             aria-label="Abrir menú"
             aria-expanded="false"
+            aria-controls="main-navigation"
         >
+
             <span></span>
             <span></span>
+
         </button>
+
 
     </header>
 
-      <footer class="site-footer">
+
+
+    <!-- =====================================================
+         CONTENIDO 404
+         ===================================================== -->
+
+    <main class="error-content">
+
+
+        <section class="error-section">
+
+            <p class="eyebrow">
+                Error 404
+            </p>
+
+
+            <h1>
+                Esta página<br>
+                no existe.
+            </h1>
+
+
+            <p class="error-description">
+                El espacio que buscas no está aquí.
+                Puedes regresar al inicio y continuar
+                explorando nuestro trabajo.
+            </p>
+
+
+            <a
+                href="index.html"
+                class="button button-dark"
+            >
+                Volver al inicio
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="site-footer">
 
 
         <a
@@ -88,12 +162,12 @@
             class="footer-brand"
             aria-label="Ortiz Arquitectos - Inicio"
         >
-        
+
             <img
                 src="images/logo_ortis_arq.webp"
                 alt="Ortiz Arquitectos"
             >
-        
+
         </a>
 
 
@@ -104,7 +178,7 @@
                 Proyectos
             </a>
 
-            <a href="#estudio">
+            <a href="index.html#estudio">
                 Estudio
             </a>
 
@@ -121,15 +195,15 @@
 
 
         <div class="footer-bottom">
-        
+
             <span>
                 © 2026 Ortiz Arquitectos
             </span>
-        
+
             <span class="footer-credit">
                 Diseño y desarrollo web por Lic. Danny Rivera
             </span>
-        
+
         </div>
 
 
